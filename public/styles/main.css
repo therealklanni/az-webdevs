@@ -26,3 +26,12 @@
 input:not([type=submit]):not([type=file]), textarea {
   width: 200px;
 }
+
+.jumbotron {
+  color: #eee;
+  background-color: #1E90FF;
+  background-image: radial-gradient(10px at right 50% , #00BFFF 0, rgba(0, 0, 0, 0.2) 500px), url(/images/az-webdevs.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+}
