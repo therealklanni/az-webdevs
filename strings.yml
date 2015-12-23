@@ -2,33 +2,36 @@
 # -
 # Configure the strings below however suits your needs
 ---
-title: Slack Invite Request Demo
+title: "AZ Web Developers"
 main:
   header:
-    blurb: "Join us on Slack!"
+    blurb: "Get Involved"
     detail:
-      "... and help us bring down the Resistance! First we just need to verify
-      some information from you and then we'll get you started."
-    subtext:
-      "We look forward to seeing you there."
+      "AZ Web Devs is a community created by and for local web developers, as a place for us to
+      connect, communicate and collaborate. This community aims to be a great
+      place to chat and get help or advice, for those of us who attend every
+      possible meetup and those who can't attend any—and everyone in between."
+    subtext: "We look forward to seeing you there!"
   about:
     team:
-      name: "Enlightened Demo"
-      link: "https://enlightened.slack.com"
+      name: "AZ Web Devs"
+      link: "https://az-webdevs.slack.com"
       description:
-        "This is just a SIR demo. Please feel free to send an application (we
-        enjoy reading your comments), but no invites will be sent out as a
-        result."
+        "Many local developers don't have time to attend meetups, or simply
+        can't go as often as they'd like to, or live too far away from ones they
+        would like to attend. For these reasons, we created this community, so
+        more developers can network with each other. This community is less formal
+        than the various Meetup groups, and we don't (yet) have any regular meetings.
+        It's more just a place to gather and chat, collaborate, get help, offer help,
+        advice, network, etc. Join us and meet more devs!"
 apply:
   # Displayed at the top of the page
   header:
     blurb: "You're almost there!"
     description:
-      "Please fill out the form below and upload your verification
-      screenshot to complete your application. Your application will
+      "Please fill out the form below. Your request to join will
       be reviewed as quickly as possible and your invitation will be
-      sent to the email address below if you are approved. The more
-      information you provide, the more likely we can verify you."
+      sent to the email address below."
     required: "Required field"
 
   form:
@@ -51,26 +54,16 @@ apply:
       # Add as many as you like
       -
         # name of this field
-        name: "username"
+        name: "company"
         # css class name for styling
-        class: "agent-name"
+        # class: "agent-name"
         # title shown to user
-        title: "Ingress agent name"
+        title: "Company"
         # help text shown to user below title text
-        help: "Let us know your agent name for verification."
+        help: "Where do you work?"
         # required fields must be filled in to submit the form
-        required: true
-        # readonly fields are not editable
-        readonly: false
-
-      -
-        name: "community"
-        class: "community"
-        title: "Community name"
-        help:
-          "To help speed up the verification process, you may provide
-          the name(s) of any communities you are a member of."
         required: false
+        # readonly fields are not editable
         readonly: false
 
       -
@@ -78,32 +71,15 @@ apply:
         class: "comments"
         title: "Comments"
         help:
-          "Any additional information you would like to provide
-          to help expedite your request."
+          "Any additional information you would like to tell us about yourself."
         required: false
         readonly: false
         # if this property is defined, the input will use the defined html
         html: <br><textarea class="form-control" id="comments" name="comments" rows="4"></textarea>
 
-      -
-        name: "screenshot"
-        class: "screenshot"
-        title: "Upload a screenshot of Ingress showing your player account"
-        help:
-          "It's <b>highly recommended</b> to submit a recent screenshot
-          that clearly shows your agent name and the open faction chat or
-          your agent profile. This will greatly increase your chances of
-          approval. Screenshots of the <i>intel page, IITC, or other
-          unofficial app will not be accepted</i>—you must capture a
-          screenshot from the <i>official Android or iOS app</i>."
-        required: true
-        readonly: false
-        html: <input type="file" class="form-control screenshot" accept="image/*" id="screenshot" name="screenshot">
 signin:
   blurb: "Thanks for your interest in joining!"
   detail:
-    "To help verify your identity, we request that you sign in with Google+
-    to continue."
+    "To help prevent spam, we request that you sign in with GitHub to continue."
   subtext:
-    "Your public profile information and public G+ activity will be used to
-    verify your identity."
+    "Your public profile information and activity will be used to verify you're not a robot or a spammer."
