@@ -1,9 +1,12 @@
 {
-  "name": "slack-invite-request",
-  "version": "1.0.1",
-  "description": "Handle Slack invite requests like a SIR",
+  "name": "az-webdevs",
+  "version": "1.0.0",
+  "description": "az-webdevs.io",
   "main": "server.js",
+  "private": true,
   "scripts": {
+    "prestart": "source .env",
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -31,7 +34,10 @@
     "got": "^2.9.2",
     "js-yaml": "^3.3.0",
     "lodash": "^3.8.0",
+    "morgan": "^1.6.1",
     "multer": "^0.1.8",
-    "mv": "^2.0.3"
+    "mv": "^2.0.3",
+    "passport": "^0.3.0",
+    "passport-github2": "^0.1.9"
   }
 }
