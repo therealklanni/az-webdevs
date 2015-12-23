@@ -2,6 +2,7 @@
 
 var express = require('express');
 var app = express();
+var logger = require('morgan');
 
 var hbs = require('express-handlebars');
 var session = require('express-session');
@@ -21,14 +22,12 @@ var yaml = require('js-yaml');
 var async = require('async');
 var changeCase = require('change-case');
 
-var strings = yaml.safeLoad(fs.readFileSync(path.resolve('./strings.yml')));
-
 var env = process.env;
 var gaToken = env.GA_TOKEN;
 var slackUrl = env.SLACK_WEBHOOK_URL;
-var clientId = env.GOOGLE_CLIENTID;
 var channel = env.SLACK_CHANNEL;
 var botName = env.SLACK_BOT_NAME || 'SIR';
+var nodeEnv = env.NODE;
 
 function exitWithError(err) {
   console.error(err);
@@ -43,26 +42,40 @@ if (!slackUrl) {
   exitWithError('Please set SLACK_WEBHOOK_URL environment variable.')
 }
 
-if (!clientId) {
-  exitWithError('Please set GOOGLE_CLIENTID environment variable.')
+if (!process.env.CLIENT_ID) {
+  exitWithError('Please set CLIENT_ID environment variable.')
+}
+
+if (!process.env.CLIENT_SECRET) {
+  exitWithError('Please set CLIENT_SECRET environment variable.')
 }
 
 var slack = require('./lib/slack')(slackUrl);
 
-// extend strings
-strings.main = _.assign({}, {
-  title: strings.title,
-  gaToken: gaToken
-}, strings.main);
-strings.signin = _.assign({}, {
-  title: strings.title,
-  gaToken: gaToken,
-  clientId: clientId
-}, strings.signin);
-strings.apply = _.assign({}, {
-  title: strings.title,
-  gaToken: gaToken
-}, strings.apply);
+function getStrings(gaToken, clientId) {
+  var strings = yaml.safeLoad(fs.readFileSync(path.resolve('./strings.yml')));
+
+  // extend strings
+  strings.main = _.assign({}, {
+    title: strings.title,
+    gaToken: gaToken
+  }, strings.main);
+
+  strings.signin = _.assign({}, {
+    title: strings.title,
+    gaToken: gaToken,
+    clientId: clientId
+  }, strings.signin);
+
+  strings.apply = _.assign({}, {
+    title: strings.title,
+    gaToken: gaToken
+  }, strings.apply);
+
+  return strings;
+}
+
+app.use(logger('dev'));
 
 app.engine('.hbs', hbs({
   defaultLayout: 'main',
@@ -76,7 +89,7 @@ app.use(
   session({
     resave: false,
     saveUninitialized: false,
-    secret: process.env.SESSION_SECRET || 'hack me pls, kthx'
+    secret: process.env.SESSION_SECRET || '(\/)(;,,;)(\/) wooop woop woop'
   }),
   cookieParser(),
   bodyParser.urlencoded({ extended: true }),
@@ -88,8 +101,17 @@ app.use(
   }
 );
 
+var passport = require('passport');
+
+app.use(passport.initialize())
+app.use(passport.session())
+
+var auth = require('./lib/auth');
+app.use('/auth', auth);
+
 app.get('/', function (req, res) {
-  res.render('main', _.assign({}, strings.main, dotty.get(req, 'session.user')));
+  // var strings = yaml.safeLoad(fs.readFileSync(path.resolve('./strings.yml')));
+  res.render('main', _.assign({}, getStrings().main, dotty.get(req, 'session.user')));
 });
 
 app.get('/signin', function (req, res) {
@@ -98,28 +120,18 @@ app.get('/signin', function (req, res) {
   if (user) {
     res.redirect('/apply');
   } else {
-    res.render('signin', strings.signin);
+    res.render('signin', getStrings().signin);
   }
 });
 
-app.post('/signin', rateLimit(), function (req, res) {
-  var user = dotty.get(req, 'body.user');
-
-  if (user && user.kind === 'plus#person') {
-    console.log('User "%s" logged in', user.displayName);
-    req.session.user = user;
-    res.sendStatus(200).end();
-  } else {
-    res.sendStatus(401).end();
-  }
-});
 
 app.get('/thanks', validate(), function (req, res) {
-  res.render('thanks', _.assign({}, strings.main, dotty.get(req, 'session.user')));
+  res.render('thanks', _.assign({}, getStrings().main, dotty.get(req, 'session.user')));
 });
 
 app.get('/apply', validate(), function (req, res) {
   var user = dotty.get(req, 'session.user');
+  var strings = getStrings();
 
   strings.apply.form.fullName.value = user.displayName;
   strings.apply.form.email.value = user.emails[0].value;
