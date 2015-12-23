@@ -4,16 +4,7 @@
   <div class="container">
     <h2 class="login-blurb">{{blurb}}</h2>
     <p class="login-detail">{{detail}}</p>
-    <div class="signin" id="signinButton">
-      <span class="g-signin"
-        data-scope="profile https://www.googleapis.com/auth/plus.profile.emails.read"
-        data-clientid="{{clientId}}"
-        data-redirecturi="/signin"
-        data-accesstype="offline"
-        data-cookiepolicy="single_host_origin"
-        data-callback="signInCallback">
-      </span>
-    </div>
+      <a href="/auth/github" class="btn btn-default btn-lg"><i class="fa fa-lg fa-github"></i> Authorize</a>
   </div>
 </div>
 
