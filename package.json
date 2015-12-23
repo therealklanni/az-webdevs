@@ -5,8 +5,7 @@
   "main": "server.js",
   "private": true,
   "scripts": {
-    "prestart": "source .env",
-    "start": "nodemon server.js",
+    "start": "nodemon --exec \"nf start\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -39,5 +38,9 @@
     "mv": "^2.0.3",
     "passport": "^0.3.0",
     "passport-github2": "^0.1.9"
+  },
+  "devDependencies": {
+    "foreman": "^1.4.1",
+    "nodemon": "^1.8.1"
   }
 }
