@@ -67,7 +67,7 @@ app.use(sassMiddleware({
     src: __dirname + '/scss',
     dest: __dirname + '/public/styles',
     debug: true,
-    // outputStyle: 'compressed',
+    outputStyle: 'compressed',
     prefix: '/styles'
 }));
 
