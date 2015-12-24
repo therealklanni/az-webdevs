@@ -62,11 +62,11 @@ app.use((err, req, res, next) => {
 });
 
 app.use(sassMiddleware({
-    src: 'scss',
-    dest: path.join(__dirname, 'public'),
+    src: __dirname + '/scss',
+    dest: __dirname + '/public/styles',
     debug: true,
     outputStyle: 'compressed',
-    prefix:  'styles/'  // Where prefix is at <link rel="stylesheets" href="prefix/style.css"/>
+    prefix: '/styles'
 }));
 
 app.use(express.static('public', {
