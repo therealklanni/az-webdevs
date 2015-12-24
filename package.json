@@ -6,6 +6,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon --exec \"nf start\"",
+    "sass": "node-sass -w scss/main.scss -o public/styles/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

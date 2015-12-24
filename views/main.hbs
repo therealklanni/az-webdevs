@@ -1,48 +1,46 @@
-{{> nav}}
-
-<!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="jumbotron">
-  <div class="container">
+<div class="hero">
+  {{> nav}}
+  <div class="hero__content">
     {{#header}}
     <h1>{{blurb}}</h1>
     <p>{{detail}}</p>
-    <p><a class="btn btn-success btn-lg" href="/apply" role="button">Join now &raquo;</a></p>
+    <p><a>Join now &raquo;</a></p>
     <p>{{subtext}}</p>
     {{/header}}
   </div>
 </div>
 
 {{#about}}
-<div class="container">
-  <div class="row">
+<div>
+  <div>
     {{#team}}
-    <div class="col-md-6">
+    <div>
       <h2>About us</h2>
-      <p class="lead">We are {{name}}</p>
+      <p>We are {{name}}</p>
       <p>{{description}}</p>
-      <p><a class="btn btn-default" href="{{link}}" role="button">View details &raquo;</a></p>
+      <p><a href="{{link}}">View details &raquo;</a></p>
     </div>
     {{/team}}
     {{!-- Add some additional info in these spaces, or remove them and remove the "col-md-4" class above --}}
-    {{!-- <div class="col-md-4">
+    {{!-- <div>
       <h2>Check out our blog</h2>
       <p>We post about our ops, events, and photos of our agents in the field. See what we've been up to!</p>
-      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+      <p><a href="#" role="button">View details &raquo;</a></p>
    </div> --}}
-    <div class="col-md-6">
+    <div>
       <h2>Phoenix JavaScript</h2>
       <p>Phoenix JavaScript hosts monthly events that allows members to network and hear technology presentations. Meetings are generally held on Wednesdays and usually there is pizza and a t-shirt drawing.</p>
-      <p><a class="btn btn-default" href="http://www.meetup.com/Phoenix-JavaScript/" role="button">View details &raquo;</a></p>
+      <p><a href="http://www.meetup.com/Phoenix-JavaScript/" role="button">View details &raquo;</a></p>
     </div>
-    <div class="col-md-6">
+    <div>
       <h2>NodeAZ</h2>
       <p>Phoenix developer group for server-side JavaScript/CoffeeScript using Node.js. Real-time web, websockets, HTML5 and much more. 7PM 3rd Mon at UAT.</p>
-      <p><a class="btn btn-default" href="http://www.meetup.com/NodeAZ/" role="button">View details &raquo;</a></p>
+      <p><a href="http://www.meetup.com/NodeAZ/" role="button">View details &raquo;</a></p>
     </div>
-    {{!-- <div class="col-md-6">
+    {{!-- <div>
       <h2>Sponsors</h2>
       <p>If you would like to sponsor us, we would love to hear from you!</p>
-      <p><a class="btn btn-default" href="mailto:therealklanni+azwebdevs@gmail.com" role="button">Contact &raquo;</a></p>
+      <p><a href="mailto:therealklanni+azwebdevs@gmail.com" role="button">Contact &raquo;</a></p>
     </div> --}}
   </div>
 </div>

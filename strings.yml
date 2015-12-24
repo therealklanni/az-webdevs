@@ -7,7 +7,7 @@ main:
   header:
     blurb: "Get Involved"
     detail:
-      "AZ Web Devs is a community created by and for local web developers, as a place for us to
+      "AZ Web Devs is a community created by and for local web developers as a place for us to
       connect, communicate and collaborate. This community aims to be a great
       place to chat and get help or advice, for those of us who attend every
       possible meetup and those who can't attend any—and everyone in between."
@@ -17,9 +17,9 @@ main:
       name: "AZ Web Devs"
       link: "https://az-webdevs.slack.com"
       description:
-        "Many local developers don't have time to attend meetups, or simply
+        "Many local developers don't have time to attend meetups, simply
         can't go as often as they'd like to, or live too far away from ones they
-        would like to attend. For these reasons, we created this community, so
+        would like to attend. For these reasons, we created this community so
         more developers can network with each other. This community is less formal
         than the various Meetup groups, and we don't (yet) have any regular meetings.
         It's more just a place to gather and chat, collaborate, get help, offer help,
