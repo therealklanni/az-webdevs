@@ -3,8 +3,11 @@
 var express = require('express');
 var app = express();
 var logger = require('morgan');
+var debug = require('debug')('SIR');
+var error = require('debug')('SIR:error');
 
 var hbs = require('express-handlebars');
+var passport = require('passport');
 var session = require('express-session');
 
 var cookieParser = require('cookie-parser');
@@ -30,7 +33,7 @@ var botName = env.SLACK_BOT_NAME || 'SIR';
 var nodeEnv = env.NODE;
 
 function exitWithError(err) {
-  console.error(err);
+  error(err);
   process.exit(1);
 }
 
@@ -42,17 +45,17 @@ if (!slackUrl) {
   exitWithError('Please set SLACK_WEBHOOK_URL environment variable.')
 }
 
-if (!process.env.CLIENT_ID) {
+if (!env.CLIENT_ID) {
   exitWithError('Please set CLIENT_ID environment variable.')
 }
 
-if (!process.env.CLIENT_SECRET) {
+if (!env.CLIENT_SECRET) {
   exitWithError('Please set CLIENT_SECRET environment variable.')
 }
 
 var slack = require('./lib/slack')(slackUrl);
 
-function getStrings(gaToken, clientId) {
+function getStrings() {
   var strings = yaml.safeLoad(fs.readFileSync(path.resolve('./strings.yml')));
 
   // extend strings
@@ -64,7 +67,7 @@ function getStrings(gaToken, clientId) {
   strings.signin = _.assign({}, {
     title: strings.title,
     gaToken: gaToken,
-    clientId: clientId
+    // clientId: clientId
   }, strings.signin);
 
   strings.apply = _.assign({}, {
@@ -89,28 +92,24 @@ app.use(
   session({
     resave: false,
     saveUninitialized: false,
-    secret: process.env.SESSION_SECRET || '(\/)(;,,;)(\/) wooop woop woop'
+    secret: env.SESSION_SECRET || '(\/)(;,,;)(\/) wooop woop woop'
   }),
   cookieParser(),
   bodyParser.urlencoded({ extended: true }),
   bodyParser.json(),
   multer(),
+  passport.initialize(),
+  passport.session(),
   function (req, res, next) {
     req.originUri = req.protocol + '://' + req.get('host');
     next();
   }
 );
 
-var passport = require('passport');
-
-app.use(passport.initialize())
-app.use(passport.session())
-
 var auth = require('./lib/auth');
 app.use('/auth', auth);
 
 app.get('/', function (req, res) {
-  // var strings = yaml.safeLoad(fs.readFileSync(path.resolve('./strings.yml')));
   res.render('main', _.assign({}, getStrings().main, dotty.get(req, 'session.user')));
 });
 
@@ -144,7 +143,7 @@ app.post('/apply', validate(), rateLimit(), function (req, res) {
   var files = req.files;
   var renameJobs = [];
 
-  console.log('Received application from "%s <%s>"', user.displayName, user.emails[0].value);
+  debug('Received application from "%s <%s>"', user.displayName, user.emails[0].value);
 
   for (var field in files) {
     var fileObj = files[field];
@@ -162,8 +161,8 @@ app.post('/apply', validate(), rateLimit(), function (req, res) {
 
   async.parallel(renameJobs, function (err) {
     if (err) {
-      console.error(err);
-      return void res.sendStatus(500);
+      error(err);
+      return res.sendStatus(500);
     }
 
     res.redirect('/thanks');
@@ -206,7 +205,7 @@ app.post('/apply', validate(), rateLimit(), function (req, res) {
 });
 
 app.use(function(err, req, res, next) {
-  console.error(err.stack);
+  error(err.stack);
   res.status(500).send('Internal Server Error');
 });
 
@@ -218,5 +217,5 @@ var server = app.listen(process.env.PORT || 3000, function () {
   var host = server.address().address;
   var port = server.address().port;
 
-  console.log('Slack Invite Request listening at http://%s:%s', host, port);
+  debug('Slack Invite Request listening at http://%s:%s', host, port);
 });
