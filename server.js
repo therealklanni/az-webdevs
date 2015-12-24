@@ -61,6 +61,14 @@ app.use((err, req, res, next) => {
   res.status(500).send('Internal Server Error');
 });
 
+app.use(sassMiddleware({
+    src: 'scss',
+    dest: path.join(__dirname, 'public'),
+    debug: true,
+    outputStyle: 'compressed',
+    prefix:  'styles/'  // Where prefix is at <link rel="stylesheets" href="prefix/style.css"/>
+}));
+
 app.use(express.static('public', {
   index: false
 }));
