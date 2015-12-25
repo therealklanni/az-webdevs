@@ -1,17 +1,17 @@
-import rateLimit from '../../lib/rate-limit';
-import validate from '../../lib/validate';
-import changeCase from 'change-case';
 import express from 'express';
-const router = express.Router();
-
-const slackUrl = process.env.SLACK_WEBHOOK_URL;
-
-if (!slackUrl) {
-  exitWithError('Please set SLACK_WEBHOOK_URL environment variable.')
-}
-
+import _ from 'lodash';
+import dotty from 'dotty';
+import bug from 'debug';
+import changeCase from 'change-case';
+import validate from '../../lib/validate';
+import rateLimit from '../../lib/rate-limit';
 import slackApi from '../../lib/slack';
-const slack = slackApi(slackUrl);
+import { exitWithError, getStrings } from '../../lib/helpers';
+
+const debug = bug('SIR:apply');
+const router = express.Router();
+const slackUrl = process.env.SLACK_WEBHOOK_URL;
+const slack = slackUrl ? slackApi(slackUrl) : exitWithError('Please set SLACK_WEBHOOK_URL environment variable.');
 
 router.get('/', validate(), (req, res) => {
   const user = dotty.get(req, 'session.user');
