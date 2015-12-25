@@ -15,7 +15,6 @@ import multer from 'multer';
 
 const env = process.env;
 const gaToken = env.GA_TOKEN;
-const slackUrl = env.SLACK_WEBHOOK_URL;
 const channel = env.SLACK_CHANNEL;
 const botName = env.SLACK_BOT_NAME || 'SIR';
 const nodeEnv = env.NODE;
@@ -24,10 +23,6 @@ import { exitWithError } from './lib/helpers';
 
 if (!gaToken) {
   exitWithError('Please set GA_TOKEN environment variable.')
-}
-
-if (!slackUrl) {
-  exitWithError('Please set SLACK_WEBHOOK_URL environment variable.')
 }
 
 if (!env.CLIENT_ID) {
