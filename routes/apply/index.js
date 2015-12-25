@@ -1,6 +1,8 @@
 import rateLimit from '../../lib/rate-limit';
 import validate from '../../lib/validate';
 import changeCase from 'change-case';
+import mod from './lib/slack';
+const slack = mod(slackUrl);
 import express from 'express';
 const router = express.Router();
 

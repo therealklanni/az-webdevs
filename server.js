@@ -38,9 +38,6 @@ if (!env.CLIENT_SECRET) {
   exitWithError('Please set CLIENT_SECRET environment variable.')
 }
 
-import mod from './lib/slack';
-const slack = mod(slackUrl);
-
 app.use(logger('dev'));
 
 app.engine('.hbs', hbs({
