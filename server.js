@@ -1,36 +1,35 @@
-'use strict';
+import express from 'express';
+const app = express();
+import logger from 'morgan';
+import bug from 'debug'
+const debug = bug('SIR');
+const error = bug('SIR:error');
 
-var express = require('express');
-var app = express();
-var logger = require('morgan');
-var debug = require('debug')('SIR');
-var error = require('debug')('SIR:error');
+import hbs from 'express-handlebars';
+import passport from 'passport';
+import session from 'express-session';
 
-var hbs = require('express-handlebars');
-var passport = require('passport');
-var session = require('express-session');
+import cookieParser from 'cookie-parser';
+import bodyParser from 'body-parser';
+import multer from 'multer';
+import validate from './lib/validate';
+import rateLimit from './lib/rate-limit';
 
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var multer = require('multer');
-var validate = require('./lib/validate');
-var rateLimit = require('./lib/rate-limit');
+import _ from 'lodash';
+import dotty from 'dotty';
+import fs from 'fs';
+import mv from 'mv';
+import path from 'path';
+import yaml from 'js-yaml';
+import async from 'async';
+import changeCase from 'change-case';
 
-var _ = require('lodash');
-var dotty = require('dotty');
-var fs = require('fs');
-var mv = require('mv');
-var path = require('path');
-var yaml = require('js-yaml');
-var async = require('async');
-var changeCase = require('change-case');
-
-var env = process.env;
-var gaToken = env.GA_TOKEN;
-var slackUrl = env.SLACK_WEBHOOK_URL;
-var channel = env.SLACK_CHANNEL;
-var botName = env.SLACK_BOT_NAME || 'SIR';
-var nodeEnv = env.NODE;
+const env = process.env;
+const gaToken = env.GA_TOKEN;
+const slackUrl = env.SLACK_WEBHOOK_URL;
+const channel = env.SLACK_CHANNEL;
+const botName = env.SLACK_BOT_NAME || 'SIR';
+const nodeEnv = env.NODE;
 
 function exitWithError(err) {
   error(err);
@@ -53,10 +52,11 @@ if (!env.CLIENT_SECRET) {
   exitWithError('Please set CLIENT_SECRET environment variable.')
 }
 
-var slack = require('./lib/slack')(slackUrl);
+import mod from './lib/slack';
+const slack = mod(slackUrl);
 
 function getStrings() {
-  var strings = yaml.safeLoad(fs.readFileSync(path.resolve('./strings.yml')));
+  const strings = yaml.safeLoad(fs.readFileSync(path.resolve('./strings.yml')));
 
   // extend strings
   strings.main = _.assign({}, {
@@ -100,21 +100,21 @@ app.use(
   multer(),
   passport.initialize(),
   passport.session(),
-  function (req, res, next) {
+  (req, res, next) => {
     req.originUri = req.protocol + '://' + req.get('host');
     next();
   }
 );
 
-var auth = require('./lib/auth');
+import auth from './lib/auth';
 app.use('/auth', auth);
 
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
   res.render('main', _.assign({}, getStrings().main, dotty.get(req, 'session.user')));
 });
 
-app.get('/signin', function (req, res) {
-  var user = dotty.get(req, 'session.user');
+app.get('/signin', (req, res) => {
+  const user = dotty.get(req, 'session.user');
 
   if (user) {
     res.redirect('/apply');
@@ -123,14 +123,13 @@ app.get('/signin', function (req, res) {
   }
 });
 
-
-app.get('/thanks', validate(), function (req, res) {
+app.get('/thanks', validate(), (req, res) => {
   res.render('thanks', _.assign({}, getStrings().main, dotty.get(req, 'session.user')));
 });
 
-app.get('/apply', validate(), function (req, res) {
-  var user = dotty.get(req, 'session.user');
-  var strings = getStrings();
+app.get('/apply', validate(), (req, res) => {
+  const user = dotty.get(req, 'session.user');
+  const strings = getStrings();
 
   strings.apply.form.fullName.value = user.displayName;
   strings.apply.form.email.value = user.emails[0].value;
@@ -138,18 +137,18 @@ app.get('/apply', validate(), function (req, res) {
   res.render('apply', _.assign({}, strings.apply, user));
 });
 
-app.post('/apply', validate(), rateLimit(), function (req, res) {
-  var user = dotty.get(req, 'session.user');
-  var files = req.files;
-  var renameJobs = [];
+app.post('/apply', validate(), rateLimit(), (req, res) => {
+  const user = dotty.get(req, 'session.user');
+  const files = req.files;
+  const renameJobs = [];
 
   debug('Received application from "%s <%s>"', user.displayName, user.emails[0].value);
 
-  for (var field in files) {
-    var fileObj = files[field];
-    var tmpPath = fileObj.path;
-    var filename = field + '-' + fileObj.name;
-    var dest = __dirname + '/public/images/' + filename;
+  for (const field in files) {
+    const fileObj = files[field];
+    const tmpPath = fileObj.path;
+    const filename = field + '-' + fileObj.name;
+    const dest = __dirname + '/public/images/' + filename;
 
     _.assign(fileObj, {
       dest: dest,
@@ -157,17 +156,16 @@ app.post('/apply', validate(), rateLimit(), function (req, res) {
     });
 
     renameJobs.push(async.apply(mv, tmpPath, dest));
-  }
 
-  async.parallel(renameJobs, function (err) {
-    if (err) {
-      error(err);
-      return res.sendStatus(500);
-    }
+    async.parallel(renameJobs, (err) => {
+      if (err) {
+        error(err);
+        return res.sendStatus(500);
+      }
 
-    res.redirect('/thanks');
+      res.redirect('/thanks');
 
-    slack({
+      slack({
       channel: channel,
       username: botName,
       icon_url: req.originUri + 'images/bot.png',
@@ -183,28 +181,28 @@ app.post('/apply', validate(), rateLimit(), function (req, res) {
           fields: _.map(
             _.pairs(_.omit(req.body, 'comments')),
             _.flow(
-              function (x) { return x; },
-              _.partialRight(_.map, function (str, i) {
+              x => x,
+              _.partialRight(_.map, (str, i) => {
                 return i ? str : changeCase.title(str);
               }),
               _.partial(_.zipObject, ['title', 'value']),
               _.partialRight(_.assign, { short: true })
             )
           )
-            .concat(_.map(files, function (file) {
-              return {
+            .concat(_.map(files, (file) => (
+              {
                 title: file.fieldname,
                 value: '<' + file.uri + '|View>',
                 short: true
               }
-            }))
+            )))
         }
       ]
     });
   });
-});
+}});
 
-app.use(function(err, req, res, next) {
+app.use((err, req, res, next) => {
   error(err.stack);
   res.status(500).send('Internal Server Error');
 });
@@ -213,9 +211,9 @@ app.use(express.static('public', {
   index: false
 }));
 
-var server = app.listen(process.env.PORT || 3000, function () {
-  var host = server.address().address;
-  var port = server.address().port;
+const server = app.listen(process.env.PORT || 3000, () => {
+  const host = server.address().address;
+  const port = server.address().port;
 
   debug('Slack Invite Request listening at http://%s:%s', host, port);
 });
