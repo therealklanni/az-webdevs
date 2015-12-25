@@ -1,4 +1,4 @@
-import { getStrings } from '../../lib/helper-functions';
+import { getStrings } from '../../lib/helpers';
 import dotty from 'dotty';
 import express from 'express';
 const router = express.Router();

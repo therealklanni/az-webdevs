@@ -12,17 +12,6 @@ import session from 'express-session';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import multer from 'multer';
-import validate from './lib/validate';
-import rateLimit from './lib/rate-limit';
-
-import _ from 'lodash';
-import dotty from 'dotty';
-import fs from 'fs';
-import mv from 'mv';
-import path from 'path';
-import yaml from 'js-yaml';
-import async from 'async';
-import changeCase from 'change-case';
 
 const env = process.env;
 const gaToken = env.GA_TOKEN;
@@ -31,7 +20,7 @@ const channel = env.SLACK_CHANNEL;
 const botName = env.SLACK_BOT_NAME || 'SIR';
 const nodeEnv = env.NODE;
 
-import { exitWithError } from './lib/helper-functions';
+import { exitWithError } from './lib/helpers';
 
 if (!gaToken) {
   exitWithError('Please set GA_TOKEN environment variable.')

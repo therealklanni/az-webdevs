@@ -1,5 +1,6 @@
 import rateLimit from '../../lib/rate-limit';
 import validate from '../../lib/validate';
+import changeCase from 'change-case';
 import express from 'express';
 const router = express.Router();
 
@@ -65,13 +66,11 @@ router.post('/', validate(), rateLimit(), (req, res) => {
               _.partialRight(_.assign, { short: true })
             )
           )
-            .concat(_.map(files, (file) => (
-              {
-                title: file.fieldname,
-                value: '<' + file.uri + '|View>',
-                short: true
-              }
-            )))
+            .concat(_.map(files, (file) => ({
+              title: file.fieldname,
+              value: '<' + file.uri + '|View>',
+              short: true
+            })))
         }
       ]
     });
