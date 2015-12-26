@@ -8,6 +8,9 @@ const error = bug('SIR:error');
 import hbs from 'express-handlebars';
 import passport from 'passport';
 import session from 'express-session';
+import mongooseConnection from './lib/db/mongo'
+import connectMongo from 'connect-mongo'
+const MongoStore = connectMongo(session)
 
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
@@ -45,9 +48,11 @@ app.set('views', './views');
 
 app.use(
   session({
+    name: 'sir.id',
     resave: false,
     saveUninitialized: false,
-    secret: env.SESSION_SECRET || '(\/)(;,,;)(\/) wooop woop woop'
+    secret: env.SESSION_SECRET || '(\/)(;,,;)(\/) wooop woop woop',
+    store: new MongoStore({ mongooseConnection })
   }),
   cookieParser(),
   bodyParser.urlencoded({ extended: true }),
