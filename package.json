@@ -35,6 +35,7 @@
     "js-yaml": "^3.3.0",
     "lodash": "^3.8.0",
     "mongoose": "^4.3.4",
+    "mongoose-findorcreate": "^0.1.2",
     "morgan": "^1.6.1",
     "multer": "^0.1.8",
     "passport": "^0.3.0",
