@@ -13,8 +13,10 @@ const router = express.Router();
 const slackUrl = process.env.SLACK_WEBHOOK_URL;
 const slack = slackUrl ? slackApi(slackUrl) : exitWithError('Please set SLACK_WEBHOOK_URL environment variable.');
 
-router.get('/', validate(), (req, res) => {
-  const user = dotty.get(req, 'session.user');
+const getUser = _.partialRight(dotty.get, 'session.passport.user');
+
+router.get('/', validate, (req, res) => {
+  const user = getUser(req);
   const strings = getStrings();
 
   strings.apply.form.fullName.value = user.displayName;
@@ -23,8 +25,8 @@ router.get('/', validate(), (req, res) => {
   res.render('apply', _.assign({}, strings.apply, user));
 });
 
-router.post('/', validate(), rateLimit(), (req, res) => {
-  const user = dotty.get(req, 'session.user');
+router.post('/', validate, rateLimit(), (req, res) => {
+  const user = getUser(req);
   const files = req.files;
   const renameJobs = [];
 
