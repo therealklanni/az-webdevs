@@ -46,15 +46,28 @@ router.post('/', validate, rateLimit(), (req, res) => {
       author_icon: dotty.get(user, 'image.url'),
       color: '#28f428',
       pretext: 'New invite request:',
-      text: req.body.comments ? '"' + req.body.comments + '"' : undefined,
+      text: req.body.comments ? `${req.body.comments}` : undefined,
       fields: _.map(
+        // omit comments because it's used for "text" above
         _.pairs(_.omit(req.body, 'comments')),
+        // transform the field data
         _.flow(
+          // necessary for unknown reasons
           x => x,
+          // convert field names to title case
           _.partialRight(_.map, (str, i) => {
             return i ? str : changeCase.title(str)
           }),
+          // convert array values (e.g. checbox fields) into a string
+          x => {
+            if (_.isArray(x[1])) {
+              x[1] = x[1].join(', ')
+            }
+            return x
+          },
+          // combine title and value into an object
           _.partial(_.zipObject, ['title', 'value']),
+          // add "short" property to object
           _.partialRight(_.assign, { short: true })
         )
       )
