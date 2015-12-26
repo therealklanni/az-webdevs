@@ -6,6 +6,7 @@ const debug = bug('SIR');
 const error = bug('SIR:error');
 
 import hbs from 'express-handlebars';
+import sassMiddleware from 'node-sass-middleware';
 import passport from 'passport';
 import session from 'express-session';
 import mongooseConnection from './lib/db/mongo'
