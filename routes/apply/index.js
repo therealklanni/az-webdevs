@@ -1,57 +1,57 @@
-import express from 'express';
-import _ from 'lodash';
-import dotty from 'dotty';
-import bug from 'debug';
-import changeCase from 'change-case';
-import validate from '../../lib/validate';
-import rateLimit from '../../lib/rate-limit';
-import slackApi from '../../lib/slack';
-import { exitWithError, getStrings } from '../../lib/helpers';
+import express from 'express'
+import _ from 'lodash'
+import dotty from 'dotty'
+import bug from 'debug'
+import changeCase from 'change-case'
+import validate from '../../lib/validate'
+import rateLimit from '../../lib/rate-limit'
+import slackApi from '../../lib/slack'
+import { exitWithError, getStrings } from '../../lib/helpers'
 
-const debug = bug('SIR:apply');
-const router = express.Router();
-const slackUrl = process.env.SLACK_WEBHOOK_URL;
-const slack = slackUrl ? slackApi(slackUrl) : exitWithError('Please set SLACK_WEBHOOK_URL environment variable.');
+const debug = bug('SIR:apply')
+const router = express.Router()
+const slackUrl = process.env.SLACK_WEBHOOK_URL
+const slack = slackUrl ? slackApi(slackUrl) : exitWithError('Please set SLACK_WEBHOOK_URL environment variable.')
 
-const getUser = _.partialRight(dotty.get, 'session.passport.user');
+const getUser = _.partialRight(dotty.get, 'session.passport.user')
 
 router.get('/', validate, (req, res) => {
-  const user = getUser(req);
-  const strings = getStrings();
+  const user = getUser(req)
+  const strings = getStrings()
 
-  strings.apply.form.fullName.value = user.displayName;
-  strings.apply.form.email.value = user.emails[0].value;
+  strings.apply.form.fullName.value = user.displayName
+  strings.apply.form.email.value = user.emails[0].value
 
-  res.render('apply', _.assign({}, strings.apply, user));
-});
+  res.render('apply', _.assign({}, strings.apply, user))
+})
 
 router.post('/', validate, rateLimit(), (req, res) => {
-  const user = getUser(req);
-  const files = req.files;
-  const renameJobs = [];
+  const user = getUser(req)
+  const files = req.files
+  const renameJobs = []
 
-  debug('Received application from "%s <%s>"', user.displayName, user.emails[0].value);
+  debug('Received application from "%s <%s>"', user.displayName, user.emails[0].value)
 
   for (const field in files) {
-    const fileObj = files[field];
-    const tmpPath = fileObj.path;
-    const filename = field + '-' + fileObj.name;
-    const dest = __dirname + '/public/images/' + filename;
+    const fileObj = files[field]
+    const tmpPath = fileObj.path
+    const filename = field + '-' + fileObj.name
+    const dest = __dirname + '/public/images/' + filename
 
     _.assign(fileObj, {
       dest: dest,
       uri: req.originUri + '/images/' + filename
-    });
+    })
 
-    renameJobs.push(async.apply(mv, tmpPath, dest));
+    renameJobs.push(async.apply(mv, tmpPath, dest))
 
     async.parallel(renameJobs, (err) => {
       if (err) {
-        error(err);
-        return res.sendStatus(500);
+        error(err)
+        return res.sendStatus(500)
       }
 
-      res.redirect('/thanks');
+      res.redirect('/thanks')
 
       slack({
       channel: channel,
@@ -71,7 +71,7 @@ router.post('/', validate, rateLimit(), (req, res) => {
             _.flow(
               x => x,
               _.partialRight(_.map, (str, i) => {
-                return i ? str : changeCase.title(str);
+                return i ? str : changeCase.title(str)
               }),
               _.partial(_.zipObject, ['title', 'value']),
               _.partialRight(_.assign, { short: true })
@@ -84,8 +84,8 @@ router.post('/', validate, rateLimit(), (req, res) => {
             })))
         }
       ]
-    });
-  });
-}});
+    })
+  })
+}})
 
-export default router;
+export default router
