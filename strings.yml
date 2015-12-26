@@ -67,6 +67,29 @@ apply:
         readonly: false
 
       -
+        # name of this field
+        name: "languages"
+        # css class name for styling
+        # class: "agent-name"
+        # title shown to user
+        title: "Languages"
+        # help text shown to user below title text
+        help: "Which (web) programming languages are you competent with?"
+        # required fields must be filled in to submit the form
+        required: false
+        # readonly fields are not editable
+        readonly: false
+        html:
+          <div class="checkbox">
+            <label><input type="checkbox" name="languages" value="es5">ES5</label>
+            <br><label><input type="checkbox" name="languages" value="es2015">ES2015</label>
+            <br><label><input type="checkbox" name="languages" value="es2016">ES2016</label>
+            <br><label><input type="checkbox" name="languages" value="dotnet">.NET</label>
+            <br><label><input type="checkbox" name="languages" value="python">Python</label>
+            <br><label><input type="checkbox" name="languages" value="php">PHP</label>
+          </div>
+
+      -
         name: "comments"
         class: "comments"
         title: "Comments"
