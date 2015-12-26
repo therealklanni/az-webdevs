@@ -16,10 +16,6 @@ import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import multer from 'multer';
 
-const env = process.env;
-const channel = env.SLACK_CHANNEL;
-const botName = env.SLACK_BOT_NAME || 'SIR';
-
 app.use(logger('dev'));
 
 app.engine('.hbs', hbs({
@@ -35,7 +31,7 @@ app.use(
     name: 'sir.id',
     resave: false,
     saveUninitialized: false,
-    secret: env.SESSION_SECRET || '(\/)(;,,;)(\/) wooop woop woop',
+    secret: process.env.SESSION_SECRET || '(\/)(;,,;)(\/) wooop woop woop',
     store: new MongoStore({ mongooseConnection })
   }),
   cookieParser(),
