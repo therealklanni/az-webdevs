@@ -17,24 +17,8 @@ import bodyParser from 'body-parser';
 import multer from 'multer';
 
 const env = process.env;
-const gaToken = env.GA_TOKEN;
 const channel = env.SLACK_CHANNEL;
 const botName = env.SLACK_BOT_NAME || 'SIR';
-const nodeEnv = env.NODE;
-
-import { exitWithError } from './lib/helpers';
-
-if (!gaToken) {
-  exitWithError('Please set GA_TOKEN environment variable.')
-}
-
-if (!env.CLIENT_ID) {
-  exitWithError('Please set CLIENT_ID environment variable.')
-}
-
-if (!env.CLIENT_SECRET) {
-  exitWithError('Please set CLIENT_SECRET environment variable.')
-}
 
 app.use(logger('dev'));
 
