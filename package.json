@@ -44,9 +44,12 @@
     "passport-github2": "^0.1.9"
   },
   "devDependencies": {
+    "autoprefixer": "^5.2.0",
+    "express-autoprefixer": "^4.0.3",
     "foreman": "^1.4.1",
     "node-sass-middleware": "^0.9.7",
-    "nodemon": "^1.8.1"
+    "nodemon": "^1.8.1",
+    "postcss": "^4.1.16"
   },
   "babel": {
     "presets": [

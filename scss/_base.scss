@@ -1,10 +1,41 @@
 html {
   box-sizing: border-box;
-  font: 12pt 'Open Sans', Arial;
+  font: 12pt Lato, 'Open Sans', Arial;
 }
 
 *, *::before, *::after {
   box-sizing: inherit;
   color: inherit;
   font: inherit;
+}
+
+.page {
+  background-color: $off-white;
+}
+
+a {
+  text-decoration: none;
+}
+
+.logo {
+  font-family:'Source Code Pro';
+  font-weight: 300;
+}
+
+button {
+  font-size: 0.8em;
+  border: 1px solid $base-color-primary;
+  border-radius: 15px;
+  padding: 0.5em 1.5em;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: $off-white;
+    color: $base-color-primary;
+  }
+}
+
+a.btn {
+  @extend button;
+  display: inline-block;
 }

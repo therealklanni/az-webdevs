@@ -1,49 +1,67 @@
 <div class="hero">
   {{> nav}}
-  <div class="hero__content">
-    {{#header}}
-    <h1>{{blurb}}</h1>
-    <p>{{detail}}</p>
-    <p><a>Join now &raquo;</a></p>
-    <p>{{subtext}}</p>
-    {{/header}}
+  <div class="logo hero__logo">
+    <span>{az}</span>
   </div>
 </div>
+<div class="content">
+  <div class="tabs">
+    <input type="radio" name="tabs" id="tab1" checked>
+    <label class="first" for="tab1">Introduction</label>
 
-{{#about}}
-<div>
-  <div>
+    <input type="radio" name="tabs" id="tab2">
+    <label for="tab2">About Us</label>
+
+    <input type="radio" name="tabs" id="tab3">
+    <label class="last" for="tab3">Local Meetups</label>
+
+    {{#header}}
+    <div id="tab-content1" class="tabs__content">
+      <h1 class="tabs__content__header">{{blurb}}</h1>
+      <p>{{detail}}</p>
+      <p><a class="btn" href="/signin">Join now &raquo;</a></p>
+      <p>{{subtext}}</p>
+    </div>
+    {{/header}}
+    {{#about}}
     {{#team}}
-    <div>
-      <h2>About us</h2>
+    <div id="tab-content2" class="tabs__content">
+      <h1 class="tabs__content__header">About Us</h1>
       <p>We are {{name}}</p>
       <p>{{description}}</p>
-      <p><a href="{{link}}">View details &raquo;</a></p>
-    </div>
+      <p><a class="btn" href="{{link}}">View details &raquo;</a></p>
     {{/team}}
-    {{!-- Add some additional info in these spaces, or remove them and remove the "col-md-4" class above --}}
-    {{!-- <div>
-      <h2>Check out our blog</h2>
-      <p>We post about our ops, events, and photos of our agents in the field. See what we've been up to!</p>
-      <p><a href="#" role="button">View details &raquo;</a></p>
-   </div> --}}
-    <div>
-      <h2>Phoenix JavaScript</h2>
-      <p>Phoenix JavaScript hosts monthly events that allows members to network and hear technology presentations. Meetings are generally held on Wednesdays and usually there is pizza and a t-shirt drawing.</p>
-      <p><a href="http://www.meetup.com/Phoenix-JavaScript/" role="button">View details &raquo;</a></p>
     </div>
-    <div>
-      <h2>NodeAZ</h2>
-      <p>Phoenix developer group for server-side JavaScript/CoffeeScript using Node.js. Real-time web, websockets, HTML5 and much more. 7PM 3rd Mon at UAT.</p>
-      <p><a href="http://www.meetup.com/NodeAZ/" role="button">View details &raquo;</a></p>
+    <div id="tab-content3" class="tabs__content">
+      <div>
+        <h1 class="tabs__content__header">Phoenix JavaScript</h1>
+        <p>
+          Phoenix JavaScript hosts monthly events that allows members to network
+          and hear technology presentations. Meetings are generally held on
+          Wednesdays and usually there is pizza and a t-shirt drawing.
+        </p>
+        <p>
+          <a class="btn" href="http://www.meetup.com/Phoenix-JavaScript/">
+            View details &raquo;
+          </a>
+        </p>
+      </div>
+      <div>
+        <h1 class="tabs__content__header">NodeAZ</h1>
+        <p>
+          Phoenix developer group for server-side JavaScript/CoffeeScript using
+          Node.js. Real-time web, websockets, HTML5 and much more. 7PM 3rd Mon
+          at UAT.
+        </p>
+        <p>
+          <a class="btn" href="http://www.meetup.com/NodeAZ/">
+            View details &raquo;
+          </a>
+        </p>
+      </div>
     </div>
-    {{!-- <div>
-      <h2>Sponsors</h2>
-      <p>If you would like to sponsor us, we would love to hear from you!</p>
-      <p><a href="mailto:therealklanni+azwebdevs@gmail.com" role="button">Contact &raquo;</a></p>
-    </div> --}}
+    {{/about}}
   </div>
 </div>
-{{/about}}
 
 {{> scripts}}

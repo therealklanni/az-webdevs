@@ -7,12 +7,15 @@ const error = bug('SIR:error');
 
 import hbs from 'express-handlebars';
 import sassMiddleware from 'node-sass-middleware';
+import autoprefixer from 'express-autoprefixer';
+
 import passport from 'passport';
 import session from 'express-session';
 import mongooseConnection from './lib/db/mongo'
 import connectMongo from 'connect-mongo'
 const MongoStore = connectMongo(session)
 
+import path from 'path';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 
@@ -66,8 +69,13 @@ app.use(sassMiddleware({
     src: __dirname + '/scss',
     dest: __dirname + '/public/styles',
     debug: true,
-    outputStyle: 'compressed',
+    // outputStyle: 'compressed',
     prefix: '/styles'
+}));
+
+app.use(autoprefixer({
+  browsers: 'last 5 versions',
+  cascade: false
 }));
 
 app.use(express.static('public', {

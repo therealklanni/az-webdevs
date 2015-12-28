@@ -1,8 +1,9 @@
-// Hero
-.hero {
-  background-image: url('/images/az-webdevs.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  height: 100vh;
+.page {
+  min-height: 100vh;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
