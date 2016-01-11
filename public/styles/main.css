@@ -4,7 +4,7 @@
  * 2. Prevent iOS and IE text size adjust after device orientation change,
  *    without disabling user zoom.
  */
-@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:300|Lato);
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400|Lato);
 html {
   font-family: sans-serif;
   /* 1 */
@@ -355,7 +355,8 @@ th {
 
 html {
   box-sizing: border-box;
-  font: 12pt Lato, 'Open Sans', Arial; }
+  font: 12pt Lato, 'Open Sans', Arial;
+  color: #DEDEDE; }
 
 *, *::before, *::after {
   box-sizing: inherit;
@@ -363,7 +364,7 @@ html {
   font: inherit; }
 
 .page {
-  background-color: #FBFBFB; }
+  background-color: #DEDEDE; }
 
 a {
   text-decoration: none; }
@@ -375,44 +376,45 @@ a {
 button, a.btn {
   font-size: 0.8em;
   border: 1px solid #1E90FF;
-  border-radius: 15px;
+  border-radius: 8px;
   padding: 0.5em 1.5em;
   transition: all 0.2s; }
   button:hover, a.btn:hover {
-    background-color: #FBFBFB;
+    background-color: #DEDEDE;
     color: #1E90FF; }
 
 a.btn {
   display: inline-block; }
 
 .page {
+  display: flex;
+  flex-direction: column;
+  background-color: #0C4174;
   min-height: 100vh; }
 
 .content {
   display: flex;
-  flex-direction: column;
-  align-items: center; }
+  flex-direction: row;
+  padding-top: 50px; }
 
-.hero__nav {
+.primary-nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  font-size: 1.2em;
+  font-size: 1.4em;
   font-weight: 600;
-  padding: 0.5rem 5rem;
-  background-color: #0E4982;
+  padding: 1rem 5rem;
   color: #1E90FF; }
-  .hero__nav .logo {
+  .primary-nav .logo {
     font-size: 1.3em; }
 
-.hero__logo {
-  font-size: 12em;
+.content__logo {
+  font-size: 13em;
+  padding-top: 30px;
   color: #1E90FF;
-  text-align: center;
-  background-color: #0E4982;
-  padding-bottom: 1.5rem; }
-  .hero__logo span {
+  text-align: center; }
+  .content__logo span {
     animation-name: fadeIn;
     animation-duration: 1200ms;
     animation-iteration-count: 1;
@@ -420,54 +422,52 @@ a.btn {
 
 .tabs {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  max-width: 700px; }
+  flex-direction: column;
+  color: #DEDEDE; }
   .tabs label {
     display: block;
     cursor: pointer;
     text-align: center;
-    width: 25%;
-    padding: 0.9rem;
-    font-size: 1.3em;
-    color: #0E4982;
-    border-bottom: 3px solid #0E4982;
+    padding: 3rem 0.5rem;
+    font: 1.3em 'Source Code Pro';
+    border-right: 2px solid #DEDEDE;
+    color: #DEDEDE;
     transition: all 0.5s; }
     .tabs label:hover {
-      color: #1177D9;
-      border-color: #1177D9; }
-    .tabs label.first {
-      margin-left: 12.5%; }
-    .tabs label.last {
-      margin-right: 12.5%; }
+      color: #1177D9; }
 
-.tabs__content {
+.tab-content {
   display: none;
-  line-height: 150%;
-  font-size: 1.1em; }
-  .tabs__content a.btn {
+  line-height: 160%;
+  font-size: 1.3em;
+  padding: 0 3rem; }
+  .tab-content a.btn {
     font-size: 1.1em;
     color: #1E90FF;
-    background-color: #0E4982;
-    border-radius: 8px;
     margin: 5px 0; }
 
-.tabs input[type=radio] {
+#tab1,
+#tab2,
+#tab3 {
   display: none; }
 
-.tabs__content * {
+.tab-content * {
   animation: scale 0.5s ease-in-out; }
 
-#tab1:checked ~ #tab-content1,
-#tab2:checked ~ #tab-content2,
-#tab3:checked ~ #tab-content3 {
+#tab1:checked ~ .tabs > label[for="tab1"],
+#tab2:checked ~ .tabs > label[for="tab2"],
+#tab3:checked ~ .tabs > label[for="tab3"] {
+  color: #1E90FF;
+  border-right: 2px solid #1E90FF; }
+
+#tab1:checked ~ div.tab-content-wrapper > #tab-content1,
+#tab2:checked ~ div.tab-content-wrapper > #tab-content2,
+#tab3:checked ~ div.tab-content-wrapper > #tab-content3 {
   display: block; }
 
-.tabs [id^="tab"]:checked + label {
-  border-bottom: 3px solid #1E90FF;
-  color: #1E90FF; }
-
-.tabs__content__header {
+.tab-content__header {
+  margin: 0 0 0.6em 0;
+  font: 2.4em 'Source Code Pro';
   color: #1E90FF; }
 
 @keyframes scale {
@@ -483,7 +483,7 @@ a.btn {
 
 @keyframes fadeIn {
   0% {
-    transform: translate(0px, -40px);
+    transform: translate(40px, 0px);
     opacity: 0; }
   100% {
     transform: translate(0px, 0px);

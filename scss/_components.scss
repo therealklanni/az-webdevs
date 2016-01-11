@@ -1,12 +1,11 @@
-.hero__nav {
+.primary-nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  font-size: 1.2em;
+  font-size: 1.4em;
   font-weight: 600;
-  padding: 0.5rem 5rem;
-  background-color: $dark;
+  padding: 1rem 5rem;
   color: $base-color-primary;
 
   .logo {
@@ -14,12 +13,11 @@
   }
 }
 
-.hero__logo {
-  font-size: 12em;
+.content__logo {
+  font-size: 13em;
+  padding-top: 30px;
   color: $base-color-primary;
   text-align: center;
-  background-color: $dark;
-  padding-bottom: 1.5rem;
 
   span {
     animation-name: fadeIn;
@@ -31,70 +29,64 @@
 
 .tabs {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  max-width: 700px;
+  flex-direction: column;
+  color: $off-white;
 
   label {
     display: block;
     cursor: pointer;
     text-align: center;
-    width: 25%;
-    padding: 0.9rem;
-    font-size: 1.3em;
-    color: $dark;
-    border-bottom: 3px solid $dark;
+    padding: 3rem 0.5rem;
+    font: 1.3em 'Source Code Pro';
+    border-right: 2px solid $off-white;
+    color: $off-white;
     transition: all 0.5s;
 
     &:hover {
       color: #1177D9;
-      border-color: #1177D9;
-    }
-
-    &.first {
-      margin-left: 12.5%;
-    }
-
-    &.last {
-      margin-right: 12.5%;
     }
   }
 }
 
-.tabs__content {
+.tab-content {
   display: none;
-  line-height: 150%;
-  font-size: 1.1em;
+  line-height: 160%;
+  font-size: 1.3em;
+  padding: 0 3rem;
 
   a.btn {
     font-size: 1.1em;
     color: $base-color-primary;
-    background-color: $dark;
-    border-radius: 8px;
     margin: 5px 0;
   }
 }
 
-.tabs input[type=radio] {
+#tab1,
+#tab2,
+#tab3 {
   display: none;
 }
 
-.tabs__content * {
+.tab-content * {
   animation: scale 0.5s ease-in-out;
 }
 
-#tab1:checked ~ #tab-content1,
-#tab2:checked ~ #tab-content2,
-#tab3:checked ~ #tab-content3 {
+#tab1:checked ~ .tabs > label[for="tab1"],
+#tab2:checked ~ .tabs > label[for="tab2"],
+#tab3:checked ~ .tabs > label[for="tab3"] {
+  color: $base-color-primary;
+  border-right: 2px solid $base-color-primary;
+}
+
+#tab1:checked ~ div.tab-content-wrapper > #tab-content1,
+#tab2:checked ~ div.tab-content-wrapper > #tab-content2,
+#tab3:checked ~ div.tab-content-wrapper > #tab-content3 {
   display: block;
 }
 
-.tabs [id^="tab"]:checked + label {
-    border-bottom: 3px solid $base-color-primary;
-    color: $base-color-primary;
-}
-
-.tabs__content__header {
+.tab-content__header {
+  margin: 0 0 0.6em 0;
+  font: 2.4em 'Source Code Pro';
   color: $base-color-primary;
 }
 
@@ -115,7 +107,7 @@
 
 @keyframes fadeIn {
     0% {
-      transform: translate(0px, -40px);
+      transform: translate(40px, 0px);
       opacity: 0;
     }
     100% {

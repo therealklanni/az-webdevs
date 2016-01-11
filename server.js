@@ -7,7 +7,6 @@ const error = bug('SIR:error');
 
 import hbs from 'express-handlebars';
 import sassMiddleware from 'node-sass-middleware';
-import autoprefixer from 'express-autoprefixer';
 
 import passport from 'passport';
 import session from 'express-session';
@@ -71,11 +70,6 @@ app.use(sassMiddleware({
     debug: true,
     // outputStyle: 'compressed',
     prefix: '/styles'
-}));
-
-app.use(autoprefixer({
-  browsers: 'last 5 versions',
-  cascade: false
 }));
 
 app.use(express.static('public', {
