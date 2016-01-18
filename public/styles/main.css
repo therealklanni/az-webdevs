@@ -375,13 +375,13 @@ a {
 
 button, a.btn {
   font-size: 0.8em;
-  border: 1px solid #1E90FF;
   border-radius: 8px;
   padding: 0.5em 1.5em;
-  transition: all 0.2s; }
+  transition: all 0.2s;
+  background-color: #449d44;
+  color: #DEDEDE; }
   button:hover, a.btn:hover {
-    background-color: #DEDEDE;
-    color: #1E90FF; }
+    background-color: #328532; }
 
 a.btn {
   display: inline-block; }
@@ -442,8 +442,7 @@ a.btn {
   font-size: 1.3em;
   padding: 0 3rem; }
   .tab-content a.btn {
-    font-size: 1.1em;
-    color: #1E90FF;
+    font-size: 1em;
     margin: 5px 0; }
 
 #tab1,
