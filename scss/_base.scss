@@ -1,6 +1,6 @@
 html {
   box-sizing: border-box;
-  font: 12pt Lato, 'Open Sans', Arial;
+  font: 16px Lato, 'Open Sans', Arial;
   color: $off-white
 }
 
@@ -25,15 +25,14 @@ a {
 
 button {
   font-size: 0.8em;
-  // border: 1px solid $base-color-primary;
   border-radius: 8px;
   padding: 0.5em 1.5em;
   transition: all 0.2s;
-  background-color: #449d44;
+  background-color: $base-color-secondary;
   color: $off-white;
 
   &:hover {
-    background-color: #328532;
+    background-color: $dark-secondary;
   }
 }
 

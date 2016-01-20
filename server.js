@@ -14,7 +14,6 @@ import mongooseConnection from './lib/db/mongo'
 import connectMongo from 'connect-mongo'
 const MongoStore = connectMongo(session)
 
-import path from 'path';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 

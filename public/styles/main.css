@@ -355,7 +355,7 @@ th {
 
 html {
   box-sizing: border-box;
-  font: 12pt Lato, 'Open Sans', Arial;
+  font: 16px Lato, 'Open Sans', Arial;
   color: #DEDEDE; }
 
 *, *::before, *::after {
@@ -378,10 +378,10 @@ button, a.btn {
   border-radius: 8px;
   padding: 0.5em 1.5em;
   transition: all 0.2s;
-  background-color: #449d44;
+  background-color: #5BB201;
   color: #DEDEDE; }
   button:hover, a.btn:hover {
-    background-color: #328532; }
+    background-color: #478804; }
 
 a.btn {
   display: inline-block; }
@@ -407,7 +407,8 @@ a.btn {
   padding: 1rem 5rem;
   color: #1E90FF; }
   .primary-nav .logo {
-    font-size: 1.3em; }
+    font-size: 1.3em;
+    color: #5BB201; }
 
 .content__logo {
   font-size: 13em;
@@ -432,9 +433,9 @@ a.btn {
     font: 1.3em 'Source Code Pro';
     border-right: 2px solid #DEDEDE;
     color: #DEDEDE;
-    transition: all 0.5s; }
+    transition: all 0.4s; }
     .tabs label:hover {
-      color: #1177D9; }
+      color: #478804; }
 
 .tab-content {
   display: none;
@@ -442,7 +443,7 @@ a.btn {
   font-size: 1.3em;
   padding: 0 3rem; }
   .tab-content a.btn {
-    font-size: 1em;
+    font-size: 0.9em;
     margin: 5px 0; }
 
 #tab1,
@@ -456,8 +457,8 @@ a.btn {
 #tab1:checked ~ .tabs > label[for="tab1"],
 #tab2:checked ~ .tabs > label[for="tab2"],
 #tab3:checked ~ .tabs > label[for="tab3"] {
-  color: #1E90FF;
-  border-right: 2px solid #1E90FF; }
+  color: #5BB201;
+  border-right: 2px solid #5BB201; }
 
 #tab1:checked ~ div.tab-content-wrapper > #tab-content1,
 #tab2:checked ~ div.tab-content-wrapper > #tab-content2,
@@ -467,7 +468,7 @@ a.btn {
 .tab-content__header {
   margin: 0 0 0.6em 0;
   font: 2.4em 'Source Code Pro';
-  color: #1E90FF; }
+  color: #5BB201; }
 
 @keyframes scale {
   0% {

@@ -10,6 +10,7 @@
 
   .logo {
     font-size: 1.3em;
+    color: $base-color-secondary;
   }
 }
 
@@ -40,11 +41,10 @@
     font: 1.3em 'Source Code Pro';
     border-right: 2px solid $off-white;
     color: $off-white;
-    transition: all 0.5s;
+    transition: all 0.4s;
 
     &:hover {
-      color: #1177D9;
-      // border-right: 2px solid #1177D9;
+      color: $dark-secondary;
     }
   }
 }
@@ -56,7 +56,7 @@
   padding: 0 3rem;
 
   a.btn {
-    font-size: 1em;
+    font-size: 0.9em;
     margin: 5px 0;
   }
 }
@@ -74,8 +74,8 @@
 #tab1:checked ~ .tabs > label[for="tab1"],
 #tab2:checked ~ .tabs > label[for="tab2"],
 #tab3:checked ~ .tabs > label[for="tab3"] {
-  color: $base-color-primary;
-  border-right: 2px solid $base-color-primary;
+  color: $base-color-secondary;
+  border-right: 2px solid $base-color-secondary;
 }
 
 #tab1:checked ~ div.tab-content-wrapper > #tab-content1,
@@ -87,7 +87,7 @@
 .tab-content__header {
   margin: 0 0 0.6em 0;
   font: 2.4em 'Source Code Pro';
-  color: $base-color-primary;
+  color: $base-color-secondary;
 }
 
 @keyframes scale {
