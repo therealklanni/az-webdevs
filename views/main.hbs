@@ -1,5 +1,5 @@
 {{> nav}}
-<div class="content">
+<div class="home-content">
   <input type="radio" name="tabs" id="tab1" checked>
   <input type="radio" name="tabs" id="tab2">
   <input type="radio" name="tabs" id="tab3">
@@ -12,7 +12,7 @@
   {{#header}}
   <div class="tab-content-wrapper">
     <div id="tab-content1" class="tab-content">
-      <h1 class="tab-content__header">{{blurb}}</h1>
+      <h1 class="primary-header">{{blurb}}</h1>
       <p>{{detail}}</p>
       <p><a class="btn" href="/signin">Join now &raquo;</a></p>
       <p>{{subtext}}</p>
@@ -21,7 +21,7 @@
     {{#about}}
     {{#team}}
     <div id="tab-content2" class="tab-content">
-      <h1 class="tab-content__header">About Us</h1>
+      <h1 class="primary-header">About Us</h1>
       <p>We are {{name}}</p>
       <p>{{description}}</p>
       <p><a class="btn" href="{{link}}">View details &raquo;</a></p>
@@ -29,7 +29,7 @@
     </div>
     <div id="tab-content3" class="tab-content">
       <div>
-        <h1 class="tab-content__header">Phoenix JavaScript</h1>
+        <h1 class="primary-header">Phoenix JavaScript</h1>
         <p>
           Phoenix JavaScript hosts monthly events that allows members to network
           and hear technology presentations. Meetings are generally held on
@@ -42,7 +42,7 @@
         </p>
       </div>
       <div>
-        <h1 class="tab-content__header">NodeAZ</h1>
+        <h1 class="primary-header">NodeAZ</h1>
         <p>
           Phoenix developer group for server-side JavaScript/CoffeeScript using
           Node.js. Real-time web, websockets, HTML5 and much more. 7PM 3rd Mon
@@ -57,7 +57,7 @@
     </div>
     {{/about}}
   </div>
-  <div class="logo content__logo">
+  <div class="logo home-content__logo">
     <span>{az}</span>
   </div>
 </div>

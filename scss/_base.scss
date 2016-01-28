@@ -23,6 +23,12 @@ a {
   font-weight: 300;
 }
 
+.primary-header {
+  margin: 0 0 0.6em 0;
+  font: 2.4em 'Source Code Pro';
+  color: $base-color-secondary;
+}
+
 button {
   font-size: 0.8em;
   border-radius: 8px;

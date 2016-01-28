@@ -14,14 +14,14 @@
   }
 }
 
-.content__logo {
+.home-content__logo {
   font-size: 13em;
   padding-top: 30px;
   color: $base-color-primary;
   text-align: center;
 
   span {
-    animation-name: fadeIn;
+    animation-name: fadeInLeft;
     animation-duration: 1200ms;
     animation-iteration-count: 1;
     animation-timing-funciton: linear;
@@ -84,10 +84,32 @@
   display: block;
 }
 
-.tab-content__header {
-  margin: 0 0 0.6em 0;
-  font: 2.4em 'Source Code Pro';
-  color: $base-color-secondary;
+.signin-content a.btn {
+  margin: 1.2em 0;
+  font-size: 1.2em;
+}
+
+.signin-content__header {
+  animation-name: fadeInRight;
+  animation-duration: 800ms;
+  animation-iteration-count: 1;
+  animation-timing-funciton: linear;
+}
+
+.signin-content__detail {
+  font-size: 1.2em;
+  animation-name: fadeInLeft;
+  animation-duration: 800ms;
+  animation-iteration-count: 1;
+  animation-timing-funciton: linear;
+}
+
+.signin-content__subtext {
+  color: $base-color-primary;
+  animation-name: fadeInRight;
+  animation-duration: 800ms;
+  animation-iteration-count: 1;
+  animation-timing-funciton: linear;
 }
 
 @keyframes scale {
@@ -105,9 +127,20 @@
   }
 }
 
-@keyframes fadeIn {
+@keyframes fadeInLeft {
     0% {
       transform: translate(40px, 0px);
+      opacity: 0;
+    }
+    100% {
+      transform: translate(0px, 0px);
+      opacity: 1;
+    }
+}
+
+@keyframes fadeInRight {
+    0% {
+      transform: translate(-40px, 0px);
       opacity: 0;
     }
     100% {

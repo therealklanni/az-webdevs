@@ -373,6 +373,11 @@ a {
   font-family: 'Source Code Pro';
   font-weight: 300; }
 
+.primary-header {
+  margin: 0 0 0.6em 0;
+  font: 2.4em 'Source Code Pro';
+  color: #5BB201; }
+
 button, a.btn {
   font-size: 0.8em;
   border-radius: 8px;
@@ -392,10 +397,17 @@ a.btn {
   background-color: #0C4174;
   min-height: 100vh; }
 
-.content {
+.home-content {
   display: flex;
   flex-direction: row;
-  padding-top: 50px; }
+  padding-top: 3rem; }
+
+.signin-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.2rem;
+  padding-top: 3rem; }
 
 .primary-nav {
   display: flex;
@@ -410,13 +422,13 @@ a.btn {
     font-size: 1.3em;
     color: #5BB201; }
 
-.content__logo {
+.home-content__logo {
   font-size: 13em;
   padding-top: 30px;
   color: #1E90FF;
   text-align: center; }
-  .content__logo span {
-    animation-name: fadeIn;
+  .home-content__logo span {
+    animation-name: fadeInLeft;
     animation-duration: 1200ms;
     animation-iteration-count: 1;
     animation-timing-funciton: linear; }
@@ -465,10 +477,29 @@ a.btn {
 #tab3:checked ~ div.tab-content-wrapper > #tab-content3 {
   display: block; }
 
-.tab-content__header {
-  margin: 0 0 0.6em 0;
-  font: 2.4em 'Source Code Pro';
-  color: #5BB201; }
+.signin-content a.btn {
+  margin: 1.2em 0;
+  font-size: 1.2em; }
+
+.signin-content__header {
+  animation-name: fadeInRight;
+  animation-duration: 800ms;
+  animation-iteration-count: 1;
+  animation-timing-funciton: linear; }
+
+.signin-content__detail {
+  font-size: 1.2em;
+  animation-name: fadeInLeft;
+  animation-duration: 800ms;
+  animation-iteration-count: 1;
+  animation-timing-funciton: linear; }
+
+.signin-content__subtext {
+  color: #1E90FF;
+  animation-name: fadeInRight;
+  animation-duration: 800ms;
+  animation-iteration-count: 1;
+  animation-timing-funciton: linear; }
 
 @keyframes scale {
   0% {
@@ -481,9 +512,17 @@ a.btn {
     transform: scale(1);
     opacity: 1; } }
 
-@keyframes fadeIn {
+@keyframes fadeInLeft {
   0% {
     transform: translate(40px, 0px);
+    opacity: 0; }
+  100% {
+    transform: translate(0px, 0px);
+    opacity: 1; } }
+
+@keyframes fadeInRight {
+  0% {
+    transform: translate(-40px, 0px);
     opacity: 0; }
   100% {
     transform: translate(0px, 0px);
