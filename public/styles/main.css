@@ -427,11 +427,6 @@ a.btn {
   padding-top: 30px;
   color: #1E90FF;
   text-align: center; }
-  .home-content__logo span {
-    animation-name: fadeInLeft;
-    animation-duration: 1200ms;
-    animation-iteration-count: 1;
-    animation-timing-funciton: linear; }
 
 .tabs {
   display: flex;
@@ -463,9 +458,6 @@ a.btn {
 #tab3 {
   display: none; }
 
-.tab-content * {
-  animation: scale 0.5s ease-in-out; }
-
 #tab1:checked ~ .tabs > label[for="tab1"],
 #tab2:checked ~ .tabs > label[for="tab2"],
 #tab3:checked ~ .tabs > label[for="tab3"] {
@@ -480,6 +472,15 @@ a.btn {
 .signin-content a.btn {
   margin: 1.2em 0;
   font-size: 1.2em; }
+
+.home-content__logo span {
+  animation-name: fadeInLeft;
+  animation-duration: 1200ms;
+  animation-iteration-count: 1;
+  animation-timing-funciton: linear; }
+
+.tab-content * {
+  animation: scale 0.5s ease-in-out; }
 
 .signin-content__header {
   animation-name: fadeInRight;

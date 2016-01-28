@@ -1,0 +1,74 @@
+// Home Page animation
+
+.home-content__logo span {
+  animation-name: fadeInLeft;
+  animation-duration: 1200ms;
+  animation-iteration-count: 1;
+  animation-timing-funciton: linear;
+}
+
+.tab-content * {
+  animation: scale 0.5s ease-in-out;
+}
+
+// Signin Page animation
+
+.signin-content__header {
+  animation-name: fadeInRight;
+  animation-duration: 800ms;
+  animation-iteration-count: 1;
+  animation-timing-funciton: linear;
+}
+
+.signin-content__detail {
+  font-size: 1.2em;
+  animation-name: fadeInLeft;
+  animation-duration: 800ms;
+  animation-iteration-count: 1;
+  animation-timing-funciton: linear;
+}
+
+.signin-content__subtext {
+  color: $base-color-primary;
+  animation-name: fadeInRight;
+  animation-duration: 800ms;
+  animation-iteration-count: 1;
+  animation-timing-funciton: linear;
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.01);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInLeft {
+    0% {
+      transform: translate(40px, 0px);
+      opacity: 0;
+    }
+    100% {
+      transform: translate(0px, 0px);
+      opacity: 1;
+    }
+}
+
+@keyframes fadeInRight {
+    0% {
+      transform: translate(-40px, 0px);
+      opacity: 0;
+    }
+    100% {
+      transform: translate(0px, 0px);
+      opacity: 1;
+    }
+}
