@@ -27,6 +27,7 @@ app.set('view engine', '.hbs');
 app.set('views', './views');
 
 app.use(
+  multer(),
   session({
     name: 'sir.id',
     resave: false,
@@ -37,7 +38,6 @@ app.use(
   cookieParser(),
   bodyParser.urlencoded({ extended: true }),
   bodyParser.json(),
-  multer(),
   passport.initialize(),
   passport.session(),
   (req, res, next) => {

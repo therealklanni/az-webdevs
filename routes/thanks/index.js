@@ -1,4 +1,4 @@
-import _ from 'lodash'
+import assign from 'lodash/assign'
 import dotty from 'dotty'
 import validate from '../../lib/validate'
 import { getStrings } from '../../lib/helpers'
@@ -18,7 +18,7 @@ router.get('/', validate, (req, res) => {
       return res.redirect('/')
     }
 
-    res.render('thanks', _.assign({}, getStrings().main, user._doc))
+    res.render('thanks', assign({}, getStrings().main, user._doc))
   })
 
 })
