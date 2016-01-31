@@ -77,3 +77,79 @@
   margin: 1.2em 0;
   font-size: 1.2em;
 }
+
+.apply-header__header {
+  margin: 0 0 0.2em 0;
+}
+
+.apply-header__description {
+  font-size: 1.3em;
+}
+
+.apply-form-fields {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 1.2em;
+
+  > div {
+    width: $apply-content-width / 2;
+    margin: 0 0 1em 0;
+  }
+
+  .form-control {
+    width: 100%;
+  }
+
+  textarea {
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    color: $off-black;
+  }
+}
+
+.apply-form-fields__label {
+  font-family: 'Source Code Pro';
+  color: $base-color-secondary;
+  padding: 0.4em 0;
+}
+
+.apply-form-fields__input {
+  border-radius: 5px;
+  padding: 0.3em;
+  color: $off-black;
+  outline: none;
+  border: none;
+}
+
+.checkbox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  label {
+    width: $apply-content-width / 6;
+    padding: 0 0 0.5em 0;
+
+    input {
+      margin: 0 0.5em 0 0;
+    }
+  }
+}
+
+.apply-form__button-wrapper {
+  text-align: center;
+}
+
+.apply-form__button {
+  font-family: Lato;
+  font-size: 1.2em;
+  border: none;
+  margin: 1em 0;
+}
+
+.help-description {
+  color: $base-color-primary;
+}

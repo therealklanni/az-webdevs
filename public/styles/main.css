@@ -391,6 +391,10 @@ button, a.btn {
 a.btn {
   display: inline-block; }
 
+span.required {
+  color: #FF0000;
+  font-family: Lato; }
+
 .page {
   display: flex;
   flex-direction: column;
@@ -408,6 +412,21 @@ a.btn {
   align-items: center;
   font-size: 1.2rem;
   padding-top: 3rem; }
+
+.apply-header {
+  display: flex;
+  flex-direction: column;
+  padding-top: 3rem;
+  text-align: center; }
+
+.apply-content {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 800px; }
+
+.apply-form-wrapper {
+  padding-top: 1rem; }
 
 .primary-nav {
   display: flex;
@@ -472,6 +491,63 @@ a.btn {
 .signin-content a.btn {
   margin: 1.2em 0;
   font-size: 1.2em; }
+
+.apply-header__header {
+  margin: 0 0 0.2em 0; }
+
+.apply-header__description {
+  font-size: 1.3em; }
+
+.apply-form-fields {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 1.2em; }
+  .apply-form-fields > div {
+    width: 400px;
+    margin: 0 0 1em 0; }
+  .apply-form-fields .form-control {
+    width: 100%; }
+  .apply-form-fields textarea {
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    color: #1B1B1B; }
+
+.apply-form-fields__label {
+  font-family: 'Source Code Pro';
+  color: #5BB201;
+  padding: 0.4em 0; }
+
+.apply-form-fields__input {
+  border-radius: 5px;
+  padding: 0.3em;
+  color: #1B1B1B;
+  outline: none;
+  border: none; }
+
+.checkbox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+  .checkbox label {
+    width: 133.33333px;
+    padding: 0 0 0.5em 0; }
+    .checkbox label input {
+      margin: 0 0.5em 0 0; }
+
+.apply-form__button-wrapper {
+  text-align: center; }
+
+.apply-form__button {
+  font-family: Lato;
+  font-size: 1.2em;
+  border: none;
+  margin: 1em 0; }
+
+.help-description {
+  color: #1E90FF; }
 
 .home-content__logo span {
   animation-name: fadeInLeft;

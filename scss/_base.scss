@@ -46,3 +46,8 @@ a.btn {
   @extend button;
   display: inline-block;
 }
+
+span.required {
+  color: #FF0000;
+  font-family: Lato;
+}

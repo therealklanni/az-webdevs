@@ -1,39 +1,40 @@
 {{> nav}}
 
 {{#header}}
-<div>
-  <div>
-    <h2>{{blurb}}</h2>
-    <p>{{description}}</p>
-    <div>* {{required}}</div>
+<div class="apply-content">
+  <div class="apply-header">
+      <h2 class="primary-header apply-header__header">{{blurb}}</h2>
+      <p class="apply-header__description">{{description}}</p>
+      <div><span class="required">*</span> {{required}}</div>
   </div>
-</div>
 {{/header}}
 
-<div>
-  <div>
-    <form method="post" action="/apply" enctype="multipart/form-data" id="application">
-      {{#form}}
-        <div>
-        {{#fullName}}
-          {{> field}}
-        {{/fullName}}
-        </div>
-        <div>
-        {{#email}}
-          {{> field}}
-        {{/email}}
-        </div>
-        {{#custom}}
-        <div>
-          {{> field}}
-        </div>
-        {{/custom}}
-      {{/form}}
+  <div class="apply-form-wrapper">
+    <form class="apply-form" method="post" action="/apply" enctype="multipart/form-data" id="application">
+      <div class="apply-form-fields">
+        {{#form}}
+          {{#fullName}}
+            <div>
+              {{> field}}
+            </div>
+          {{/fullName}}
+          {{#email}}
+            <div>
+              {{> field}}
+            </div>
+          {{/email}}
+          {{#custom}}
+            <div>
+              {{> field}}
+            </div>
+          {{/custom}}
+        {{/form}}
+      </div>
 
-      <button type="submit">Submit</button>
+      <div class="apply-form__button-wrapper">
+        <button class="apply-form__button" type="submit">Submit</button>
+      </div>
     </form>
   </div>
 </div>
-
 {{> scripts}}

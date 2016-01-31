@@ -19,7 +19,20 @@
   padding-top: 3rem;
 }
 
-  // background-image: radial-gradient(url('/images/es6_2.png');
-  // background-size: cover;
-  // background-repeat: no-repeat;
-  // background-position: center center;
+.apply-header {
+  display: flex;
+  flex-direction: column;
+  padding-top: 3rem;
+  text-align: center;
+}
+
+.apply-content {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: $apply-content-width;
+}
+
+.apply-form-wrapper {
+  padding-top: 1rem;
+}
