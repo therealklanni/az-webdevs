@@ -2,11 +2,10 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-  font-size: 1.4em;
   font-weight: 600;
-  padding: 1rem 5rem;
   color: $base-color-primary;
+  font-size: 1.4em;
+  padding: 1rem 5rem;
 
   .logo {
     font-size: 1.3em;
@@ -16,25 +15,44 @@
 
 .home-content__logo {
   font-size: 13em;
-  padding-top: 30px;
   color: $base-color-primary;
   text-align: center;
+
+  @media screen and (min-width: 955px) {
+    padding-top: 3rem;
+  }
 }
 
 .tabs {
-  display: flex;
-  flex-direction: column;
   color: $off-white;
+  display: flex;
+  flex-direction: row;
+
+  @media screen and (min-width: 955px) {
+    flex-direction: column;
+    padding-top: 3rem;
+  }
+
+  @media screen and (min-width: 1150px) {
+    padding: 0;
+  }
 
   label {
     display: block;
     cursor: pointer;
-    text-align: center;
-    padding: 3rem 0.5rem;
     font: 1.3em 'Source Code Pro';
-    border-right: 2px solid $off-white;
     color: $off-white;
     transition: all 0.4s;
+    border-bottom: 2px solid $off-white;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1.5rem;
+
+    @media screen and (min-width: 955px) {
+      margin: 0;
+      border-bottom: none;
+      padding: 3rem 0.5rem;
+      border-right: 2px solid $off-white;
+    }
 
     &:hover {
       color: $dark-secondary;
@@ -46,12 +64,21 @@
   display: none;
   line-height: 160%;
   font-size: 1.3em;
-  padding: 0 3rem;
+  text-align: center;
+
+  @media screen and (min-width: 955px) {
+    padding: 0 3rem;
+    text-align: left;
+  }
 
   a.btn {
     font-size: 0.9em;
     margin: 5px 0;
   }
+}
+
+.tab-content__details {
+  text-align: justify;
 }
 
 #tab1,
@@ -64,7 +91,12 @@
 #tab2:checked ~ .tabs > label[for="tab2"],
 #tab3:checked ~ .tabs > label[for="tab3"] {
   color: $base-color-secondary;
-  border-right: 2px solid $base-color-secondary;
+  border-bottom: 2px solid $base-color-secondary;
+
+  @media screen and (min-width: 955px) {
+    border-bottom: none;
+    border-right: 2px solid $base-color-secondary;
+  }
 }
 
 #tab1:checked ~ div.tab-content-wrapper > #tab-content1,

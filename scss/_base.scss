@@ -1,7 +1,32 @@
 html {
   box-sizing: border-box;
-  font: 16px Lato, 'Open Sans', Arial;
-  color: $off-white
+  color: $off-white;
+  font-family: Lato, 'Open Sans', Arial;
+  font-size: 9px;
+
+  @media screen and (min-width: 450px) {
+    font-size: 10px;
+  }
+
+  @media screen and (min-width: 550px) {
+    font-size: 11px;
+  }
+
+  @media screen and (min-width: 650px) {
+    font-size: 12px;
+  }
+
+  @media screen and (min-width: 750px) {
+    font-size: 13px;
+  }
+
+  @media screen and (min-width: 1050px) {
+    font-size: 15px;
+  }
+
+  @media screen and (min-width: 1150px) {
+    font-size: 16px;
+  }
 }
 
 *, *::before, *::after {

@@ -7,8 +7,15 @@
 
 .home-content {
   display: flex;
-  flex-direction: row;
-  padding-top: 3rem;
+  flex-direction: column;
+  padding: 3rem 3rem 0 3rem;
+  align-items: center;
+
+  @media screen and (min-width: 955px) {
+    padding: 3rem 1rem 0 1rem;
+    flex-direction: row;
+    align-items: stretch;
+  }
 }
 
 .signin-content {
