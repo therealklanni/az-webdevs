@@ -428,6 +428,15 @@ span.required {
 .apply-form-wrapper {
   padding-top: 1rem; }
 
+.thanks-content {
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 0 auto;
+  width: 800px;
+  padding-top: 3rem; }
+
 .primary-nav {
   display: flex;
   flex-direction: row;
@@ -546,8 +555,11 @@ span.required {
   border: none;
   margin: 1em 0; }
 
-.help-description {
+.secondary-description {
   color: #1E90FF; }
+
+.thanks-content__review, .thanks-content__process {
+  line-height: 160%; }
 
 .home-content__logo span {
   animation-name: fadeInLeft;
@@ -572,6 +584,25 @@ span.required {
   animation-timing-funciton: linear; }
 
 .signin-content__subtext {
+  color: #1E90FF;
+  animation-name: fadeInRight;
+  animation-duration: 800ms;
+  animation-iteration-count: 1;
+  animation-timing-funciton: linear; }
+
+.thanks-content__header {
+  animation-name: fadeInRight;
+  animation-duration: 800ms;
+  animation-iteration-count: 1;
+  animation-timing-funciton: linear; }
+
+.thanks-content__review {
+  animation-name: fadeInLeft;
+  animation-duration: 800ms;
+  animation-iteration-count: 1;
+  animation-timing-funciton: linear; }
+
+.thanks-content__process {
   color: #1E90FF;
   animation-name: fadeInRight;
   animation-duration: 800ms;

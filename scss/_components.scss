@@ -94,7 +94,7 @@
   font-size: 1.2em;
 
   > div {
-    width: $apply-content-width / 2;
+    width: $panel-content-width / 2;
     margin: 0 0 1em 0;
   }
 
@@ -130,7 +130,7 @@
   flex-wrap: wrap;
 
   label {
-    width: $apply-content-width / 6;
+    width: $panel-content-width / 6;
     padding: 0 0 0.5em 0;
 
     input {
@@ -150,6 +150,10 @@
   margin: 1em 0;
 }
 
-.help-description {
+.secondary-description {
   color: $base-color-primary;
+}
+
+.thanks-content__review, .thanks-content__process {
+  line-height: 160%;
 }

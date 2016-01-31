@@ -36,6 +36,28 @@
   animation-timing-funciton: linear;
 }
 
+.thanks-content__header {
+  animation-name: fadeInRight;
+  animation-duration: 800ms;
+  animation-iteration-count: 1;
+  animation-timing-funciton: linear;
+}
+
+.thanks-content__review {
+  animation-name: fadeInLeft;
+  animation-duration: 800ms;
+  animation-iteration-count: 1;
+  animation-timing-funciton: linear;
+}
+
+.thanks-content__process {
+  color: $base-color-primary;
+  animation-name: fadeInRight;
+  animation-duration: 800ms;
+  animation-iteration-count: 1;
+  animation-timing-funciton: linear;
+}
+
 @keyframes scale {
   0% {
     transform: scale(0.9);

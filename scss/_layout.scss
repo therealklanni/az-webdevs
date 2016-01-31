@@ -30,9 +30,19 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  width: $apply-content-width;
+  width: $panel-content-width;
 }
 
 .apply-form-wrapper {
   padding-top: 1rem;
+}
+
+.thanks-content {
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 0 auto;
+  width: $panel-content-width;
+  padding-top: 3rem;
 }
