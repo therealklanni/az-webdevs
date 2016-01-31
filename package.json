@@ -40,12 +40,12 @@
     "mongoose": "^4.3.7",
     "mongoose-findorcreate": "^0.1.2",
     "morgan": "^1.6.1",
+    "node-sass-middleware": "^0.9.7",
     "passport": "^0.3.2",
     "passport-github2": "^0.1.9"
   },
   "devDependencies": {
     "foreman": "^1.4.1",
-    "node-sass-middleware": "^0.9.7",
     "nodemon": "^1.8.1"
   },
   "babel": {
