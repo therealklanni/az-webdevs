@@ -120,14 +120,22 @@
 
 .apply-form-fields {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   font-size: 1.2em;
 
+  @media screen and (min-width: 725px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
   > div {
-    width: $panel-content-width / 2;
     margin: 0 0 1em 0;
+
+    @media screen and (min-width: 725px) {
+      width: $panel-content-width-large / 2;
+    }
   }
 
   .form-control {
@@ -162,8 +170,16 @@
   flex-wrap: wrap;
 
   label {
-    width: $panel-content-width / 6;
     padding: 0 0 0.5em 0;
+    width: $panel-content-width-small / 6;
+
+    @media screen and (min-width: 530px) {
+      width: $panel-content-width-medium / 6;
+    }
+
+    @media screen and (min-width: 725px) {
+      width: $panel-content-width-large / 6;
+    }
 
     input {
       margin: 0 0.5em 0 0;

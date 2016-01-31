@@ -99,7 +99,7 @@ apply:
         required: false
         readonly: false
         # if this property is defined, the input will use the defined html
-        html: <textarea class="form-control" id="comments" name="comments" rows="4"></textarea>
+        html: <textarea class="form-control" id="comments" name="comments" rows="4" placeholder="Comments"></textarea>
 
 signin:
   blurb: "Thanks for your interest in joining!"
