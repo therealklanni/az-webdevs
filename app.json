@@ -1,0 +1,34 @@
+{
+  "name": "az-webdevs",
+  "scripts": {
+  },
+  "env": {
+    "BASE_URL": {
+      "required": true
+    },
+    "CLIENT_ID": {
+      "required": true
+    },
+    "CLIENT_SECRET": {
+      "required": true
+    },
+    "GA_TOKEN": {
+      "required": true
+    },
+    "MONGO_DB": {
+      "required": true
+    },
+    "NODE_ENV": {
+      "required": true
+    },
+    "SLACK_CHANNEL": {
+      "required": true
+    },
+    "SLACK_WEBHOOK_URL": {
+      "required": true
+    }
+  },
+  "addons": [
+    "mongolab"
+  ]
+}
