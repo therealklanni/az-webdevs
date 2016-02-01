@@ -5,7 +5,11 @@
   font-weight: 600;
   color: $base-color-primary;
   font-size: 1.4em;
-  padding: 1rem 5rem;
+  padding: 1rem 3rem;
+
+  @media screen and (min-width: 450px) {
+    padding: 1rem 5rem;
+  }
 
   .logo {
     font-size: 1.3em;
@@ -17,9 +21,10 @@
   font-size: 13em;
   color: $base-color-primary;
   text-align: center;
+  padding-bottom: 2rem;
 
-  @media screen and (min-width: 955px) {
-    padding-top: 3rem;
+  @media screen and (min-width: 900px) {
+    padding: 3rem 0 0 0;
   }
 }
 
@@ -27,8 +32,9 @@
   color: $off-white;
   display: flex;
   flex-direction: row;
+  text-align: center;
 
-  @media screen and (min-width: 955px) {
+  @media screen and (min-width: 900px) {
     flex-direction: column;
     padding-top: 3rem;
   }
@@ -47,7 +53,7 @@
     padding: 1.2rem 1.5rem;
     margin-bottom: 1.5rem;
 
-    @media screen and (min-width: 955px) {
+    @media screen and (min-width: 900px) {
       margin: 0;
       border-bottom: none;
       padding: 3rem 0.5rem;
@@ -66,7 +72,7 @@
   font-size: 1.3em;
   text-align: center;
 
-  @media screen and (min-width: 955px) {
+  @media screen and (min-width: 900px) {
     padding: 0 3rem;
     text-align: left;
   }
@@ -78,7 +84,7 @@
 }
 
 .tab-content__details {
-  text-align: justify;
+  text-align: left;
 }
 
 #tab1,
@@ -93,7 +99,7 @@
   color: $base-color-secondary;
   border-bottom: 2px solid $base-color-secondary;
 
-  @media screen and (min-width: 955px) {
+  @media screen and (min-width: 900px) {
     border-bottom: none;
     border-right: 2px solid $base-color-secondary;
   }
