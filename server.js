@@ -14,7 +14,6 @@ const MongoStore = connectMongo(session)
 
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
-import multer from 'multer';
 
 app.use(logger('dev'));
 
@@ -27,7 +26,6 @@ app.set('view engine', '.hbs');
 app.set('views', './views');
 
 app.use(
-  multer(),
   session({
     name: 'sir.id',
     resave: false,
