@@ -1,9 +1,12 @@
 // Home Page animation
 
 .home-content__logo {
+  -webkit-animation-name: fadeInLeft;
   animation-name: fadeInLeft;
-  animation-duration: 1100ms;
-  animation-iteration-count: 1;
+  -webkit-animation-duration: 1100ms;
+          animation-duration: 1100ms;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
   animation-timing-funciton: linear;
 }
 
@@ -14,47 +17,62 @@
 // Signin Page animation
 
 .signin-content__header {
+  -webkit-animation-name: fadeInRight;
   animation-name: fadeInRight;
-  animation-duration: 800ms;
-  animation-iteration-count: 1;
+  -webkit-animation-duration: 800ms;
+          animation-duration: 800ms;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
   animation-timing-funciton: linear;
 }
 
 .signin-content__detail {
-  font-size: 1.2em;
+  -webkit-animation-name: fadeInLeft;
   animation-name: fadeInLeft;
-  animation-duration: 800ms;
-  animation-iteration-count: 1;
+  -webkit-animation-duration: 800ms;
+          animation-duration: 800ms;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
   animation-timing-funciton: linear;
 }
 
 .signin-content__subtext {
-  color: $base-color-primary;
+  -webkit-animation-name: fadeInRight;
   animation-name: fadeInRight;
-  animation-duration: 800ms;
-  animation-iteration-count: 1;
+  -webkit-animation-duration: 800ms;
+          animation-duration: 800ms;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
   animation-timing-funciton: linear;
 }
 
 .thanks-content__header {
+  -webkit-animation-name: fadeInRight;
   animation-name: fadeInRight;
-  animation-duration: 800ms;
-  animation-iteration-count: 1;
+  -webkit-animation-duration: 800ms;
+          animation-duration: 800ms;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
   animation-timing-funciton: linear;
 }
 
 .thanks-content__review {
+  -webkit-animation-name: fadeInLeft;
   animation-name: fadeInLeft;
-  animation-duration: 800ms;
-  animation-iteration-count: 1;
+  -webkit-animation-duration: 800ms;
+          animation-duration: 800ms;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
   animation-timing-funciton: linear;
 }
 
 .thanks-content__process {
-  color: $base-color-primary;
+  -webkit-animation-name: fadeInRight;
   animation-name: fadeInRight;
-  animation-duration: 800ms;
-  animation-iteration-count: 1;
+  -webkit-animation-duration: 800ms;
+          animation-duration: 800ms;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
   animation-timing-funciton: linear;
 }
 
