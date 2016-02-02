@@ -2,6 +2,7 @@ import express from 'express'
 import _ from 'lodash'
 import dotty from 'dotty'
 import bug from 'debug'
+import multer from 'multer'
 import changeCase from 'change-case'
 import validate from '../../lib/validate'
 import rateLimit from '../../lib/rate-limit'
@@ -37,7 +38,7 @@ router.get('/', validate, (req, res) => {
   })
 })
 
-router.post('/', validate, rateLimit(), (req, res) => {
+router.post('/', validate, rateLimit(), multer().array(), (req, res) => {
   const githubId = getId(req)
 
   User.findOne({ githubId }, (err, user) => {
