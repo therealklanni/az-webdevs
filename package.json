@@ -7,11 +7,13 @@
   "scripts": {
     "postinstall": "npm prune",
     "start": "nodemon --exec \"nf start\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:mongo": "mongod --config mongod.conf --fork",
+    "sass": "node-sass -w scss/main.scss -o public/styles/",
+    "test": "echo \"Error: no test specified\""
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/therealklanni/slack-invite-request.git"
+    "url": "https://github.com/therealklanni/slack-invite-request.git"
   },
   "bugs": {
     "url": "https://github.com/therealklanni/slack-invite-request/issues"
