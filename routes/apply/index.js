@@ -16,8 +16,8 @@ const router = express.Router()
 const channel = process.env.SLACK_CHANNEL
 const botName = process.env.SLACK_BOT_NAME || process.env.HEROKU_APP_NAME || 'SIR'
 const slackUrl = process.env.SLACK_WEBHOOK_URL
-const slack = slackUrl ? slackApi(slackUrl) :
-  exitWithError('Please set SLACK_WEBHOOK_URL environment variable.')
+const slack = slackUrl ? slackApi(slackUrl)
+  : exitWithError('Please set SLACK_WEBHOOK_URL environment variable.')
 
 const getId = _.partialRight(dotty.get, 'session.passport.user')
 

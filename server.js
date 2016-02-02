@@ -64,11 +64,11 @@ app.use((err, req, res, next) => {
 })
 
 app.use(sassMiddleware({
-    src: __dirname + '/scss',
-    dest: __dirname + '/public/styles',
-    debug: true,
-    outputStyle: 'compressed',
-    prefix: '/styles'
+  src: __dirname + '/scss',
+  dest: __dirname + '/public/styles',
+  debug: true,
+  outputStyle: 'compressed',
+  prefix: '/styles'
 }))
 
 app.use(express.static('public', {
