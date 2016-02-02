@@ -13,7 +13,7 @@ import User from '../../lib/db/models/user'
 const debug = bug('SIR:apply')
 const router = express.Router()
 
-const channel = process.env.SLACK_CHANNEL;
+const channel = process.env.SLACK_CHANNEL
 const botName = process.env.SLACK_BOT_NAME || process.env.HEROKU_APP_NAME || 'SIR'
 const slackUrl = process.env.SLACK_WEBHOOK_URL
 const slack = slackUrl ? slackApi(slackUrl) :
