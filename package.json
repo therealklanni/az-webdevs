@@ -6,8 +6,11 @@
   "private": true,
   "scripts": {
     "postinstall": "npm prune",
-    "start": "nodemon --exec \"nf start\"",
+    "prestart": "npm run start:mongo",
+    "start": "nodemon --exec \"nf start\"; npm stop",
+    "stop": "npm run stop:mongo",
     "start:mongo": "mongod --config mongod.conf --fork",
+    "stop:mongo": "killall -9 mongod",
     "sass": "node-sass -w scss/main.scss -o public/styles/",
     "test": "echo \"Error: no test specified\""
   },
