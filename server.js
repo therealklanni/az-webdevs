@@ -79,5 +79,5 @@ const server = app.listen(process.env.PORT || 3000, () => {
   const host = server.address().address;
   const port = server.address().port;
 
-  debug('Slack Invite Request listening at http://%s:%s', host, port);
+  debug('Slack Invite Request listening at http://%s:%s', host === '::' ? 'localhost' : host, port);
 });
