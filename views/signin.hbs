@@ -1,15 +1,12 @@
 {{> nav}}
 
-<div>
-  <div>
-    <h2>{{blurb}}</h2>
-    <p>{{detail}}</p>
-      <a href="/auth/github"><i class="fa fa-lg fa-github"></i> Authorize</a>
-  </div>
-</div>
-
-<div>
-  <p>{{subtext}}</p>
+<div class="signin-content">
+  <h2 class="primary-header signin-content__header">{{blurb}}</h2>
+  <p class="signin-content__detail">{{detail}}</p>
+  <a class="btn" href="/auth/github">
+    <i class="fa fa-lg fa-github"></i> Authorize
+  </a>
+  <p class="signin-content__subtext">{{subtext}}</p>
 </div>
 
 {{> scripts}}

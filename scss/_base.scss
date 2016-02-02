@@ -1,10 +1,91 @@
 html {
   box-sizing: border-box;
-  font: 12pt 'Open Sans', Arial;
+  color: $off-white;
+  font-family: Lato, 'Open Sans', Arial;
+  font-size: 11px;
+
+  @media screen and (min-width: 450px) {
+    font-size: 13px;
+  }
+
+  @media screen and (min-width: 600px) {
+    font-size: 14px;
+  }
+
+  @media screen and (min-width: 780px) {
+    font-size: 15px;
+  }
+
+  @media screen and (min-width: 900px) {
+    font-size: 13px;
+  }
+
+  @media screen and (min-width: 975px) {
+    font-size: 14px;
+  }
+
+  @media screen and (min-width: 1050px) {
+    font-size: 15px;
+  }
+
+  @media screen and (min-width: 1150px) {
+    font-size: 16px;
+  }
+
+  @media screen and (min-width: 1400px) {
+    font-size: 17px;
+  }
+
+  @media screen and (min-width: 1600px) {
+    font-size: 18px;
+  }
 }
 
 *, *::before, *::after {
   box-sizing: inherit;
   color: inherit;
   font: inherit;
+}
+
+.page {
+  background-color: $off-white;
+}
+
+a {
+  text-decoration: none;
+}
+
+.logo {
+  font-family:'Source Code Pro';
+  font-weight: 300;
+}
+
+.primary-header {
+  margin: 0 0 0.6em 0;
+  font: 2.4em 'Source Code Pro';
+  color: $base-color-secondary;
+}
+
+button {
+  font-size: 0.8em;
+  font-weight: 400;
+  border-radius: 8px;
+  padding: 0.5em 1.5em;
+  transition: all 0.2s;
+  background-color: $base-color-secondary;
+  color: $off-white;
+
+  &:hover {
+    background-color: $dark-secondary;
+  }
+}
+
+a.btn {
+  @extend button;
+  display: inline-block;
+}
+
+span.required {
+  color: #FF0000;
+  font-family: Lato;
 }

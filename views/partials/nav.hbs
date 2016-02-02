@@ -1,20 +1,12 @@
-<nav class="hero__nav">
-  <div>
-    <div>
-      <a href="/">{{title}}</a>
-    </div>
-    {{#if displayName}}
-    {{!-- <div>
-      <a href="/signout">Sign out</a>
-    </div> --}}
-    </form> --}}
-    <div>
-      <span>{{user}}</span>
-    </div>
-    {{else}}
-    <div>
-      <a href="/signin">Sign in</a>
-    </div>
-    {{/if}}
+<nav class="primary-nav">
+  <div class="primary-nav__title">
+    <a href="/">
+      <span class="logo">{az}</span> {{title}}
+    </a>
   </div>
+  {{#if displayName}}
+  <button class="login">{{user}}</button>
+  {{else}}
+  <a class="btn" href="/signin">Sign in</a>
+  {{/if}}
 </nav>

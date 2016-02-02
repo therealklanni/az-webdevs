@@ -1,0 +1,114 @@
+// Home Page animation
+
+.home-content__logo {
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+  -webkit-animation-duration: 1100ms;
+          animation-duration: 1100ms;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  animation-timing-funciton: linear;
+}
+
+.tab-content * {
+  animation: scale 0.5s ease-in-out;
+}
+
+// Signin Page animation
+
+.signin-content__header {
+  -webkit-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+  -webkit-animation-duration: 800ms;
+          animation-duration: 800ms;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  animation-timing-funciton: linear;
+}
+
+.signin-content__detail {
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+  -webkit-animation-duration: 800ms;
+          animation-duration: 800ms;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  animation-timing-funciton: linear;
+}
+
+.signin-content__subtext {
+  -webkit-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+  -webkit-animation-duration: 800ms;
+          animation-duration: 800ms;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  animation-timing-funciton: linear;
+}
+
+.thanks-content__header {
+  -webkit-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+  -webkit-animation-duration: 800ms;
+          animation-duration: 800ms;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  animation-timing-funciton: linear;
+}
+
+.thanks-content__review {
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+  -webkit-animation-duration: 800ms;
+          animation-duration: 800ms;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  animation-timing-funciton: linear;
+}
+
+.thanks-content__process {
+  -webkit-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+  -webkit-animation-duration: 800ms;
+          animation-duration: 800ms;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  animation-timing-funciton: linear;
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.01);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInLeft {
+    0% {
+      transform: translate(40px, 0px);
+      opacity: 0;
+    }
+    100% {
+      transform: translate(0px, 0px);
+      opacity: 1;
+    }
+}
+
+@keyframes fadeInRight {
+    0% {
+      transform: translate(-40px, 0px);
+      opacity: 0;
+    }
+    100% {
+      transform: translate(0px, 0px);
+      opacity: 1;
+    }
+}

@@ -2,7 +2,7 @@
 # -
 # Configure the strings below however suits your needs
 ---
-title: "AZ Web Developers"
+title: "Web Developers"
 main:
   header:
     blurb: "Get Involved"
@@ -82,11 +82,12 @@ apply:
         html:
           <div class="checkbox">
             <label><input type="checkbox" name="languages" value="es5">ES5</label>
-            <br><label><input type="checkbox" name="languages" value="es2015">ES2015</label>
-            <br><label><input type="checkbox" name="languages" value="es2016">ES2016</label>
-            <br><label><input type="checkbox" name="languages" value="dotnet">.NET</label>
-            <br><label><input type="checkbox" name="languages" value="python">Python</label>
-            <br><label><input type="checkbox" name="languages" value="php">PHP</label>
+            <label><input type="checkbox" name="languages" value="es2015">ES2015</label>
+            <label><input type="checkbox" name="languages" value="es2016">ES2016</label>
+            <label><input type="checkbox" name="languages" value="dotnet">.NET</label>
+            <label><input type="checkbox" name="languages" value="python">Python</label>
+            <label><input type="checkbox" name="languages" value="php">PHP</label>
+            <label><input type="checkbox" name="languages" vlaue="ruby">Ruby</label>
           </div>
 
       -
@@ -98,7 +99,7 @@ apply:
         required: false
         readonly: false
         # if this property is defined, the input will use the defined html
-        html: <br><textarea class="form-control" id="comments" name="comments" rows="4"></textarea>
+        html: <textarea class="form-control" id="comments" name="comments" rows="4" placeholder="Comments"></textarea>
 
 signin:
   blurb: "Thanks for your interest in joining!"

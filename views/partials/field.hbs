@@ -1,14 +1,18 @@
-<label for="{{name}}" class="{{class}}">
-  <div>{{{title}}}{{#required}}<span>*</span>{{/required}}</div>
-  {{#if help}}<p>{{{help}}}</p>{{/if}}
+<label for="{{name}}" class="apply-form-fields__label">
+  <p>{{{title}}}{{#required}}<span class="required">*</span>{{/required}}</p>
+  {{#if help}}<p class="secondary-description">{{{help}}}</p>{{/if}}
 </label>
 {{{html}}}
 {{^html}}
-<input
-  type="text"
-  id="{{name}}"
-  name="{{name}}"
-  value="{{value}}"
-  {{#required}}required{{/required}}
-  {{#readonly}}readonly{{/readonly}}>
+<div>
+  <input
+    class="apply-form-fields__input"
+    type="text"
+    id="{{name}}"
+    name="{{name}}"
+    value="{{value}}"
+    placeholder="{{title}}"
+    {{#required}}required{{/required}}
+    {{#readonly}}readonly{{/readonly}}>
+</div>
 {{/html}}

@@ -7,8 +7,7 @@
   "scripts": {
     "postinstall": "npm prune",
     "start": "nodemon --exec \"nf start\"",
-    "sass": "node-sass -w scss/main.scss -o public/styles/",
-    "test": "echo \"Error: no test specified\""
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -41,6 +40,7 @@
     "mongoose": "^4.3.7",
     "mongoose-findorcreate": "^0.1.2",
     "morgan": "^1.6.1",
+    "node-sass-middleware": "^0.9.7",
     "passport": "^0.3.2",
     "passport-github2": "^0.1.9"
   },

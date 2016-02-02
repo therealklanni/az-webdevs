@@ -1,0 +1,214 @@
+.primary-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-weight: 600;
+  color: $base-color-primary;
+  font-size: 1.4em;
+  padding: 1rem 3rem;
+
+  @media screen and (min-width: 450px) {
+    padding: 1rem 5rem;
+  }
+
+  .logo {
+    font-size: 1.3em;
+    color: $base-color-secondary;
+  }
+}
+
+.home-content__logo {
+  font-size: 13em;
+  color: $base-color-primary;
+  text-align: center;
+  padding-bottom: 2rem;
+
+  @media screen and (min-width: 900px) {
+    padding: 3rem 0 0 0;
+  }
+}
+
+.tabs {
+  color: $off-white;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+
+  @media screen and (min-width: 900px) {
+    flex-direction: column;
+    padding-top: 3rem;
+  }
+
+  @media screen and (min-width: 1150px) {
+    padding: 0;
+  }
+
+  label {
+    display: block;
+    cursor: pointer;
+    font: 1.3em 'Source Code Pro';
+    color: $off-white;
+    transition: all 0.4s;
+    border-bottom: 2px solid $off-white;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1.5rem;
+
+    @media screen and (min-width: 900px) {
+      margin: 0;
+      border-bottom: none;
+      padding: 3rem 0.5rem;
+      border-right: 2px solid $off-white;
+    }
+
+    &:hover {
+      color: $dark-secondary;
+    }
+  }
+}
+
+.tab-content {
+  display: none;
+  line-height: 160%;
+  font-size: 1.3em;
+  text-align: center;
+
+  @media screen and (min-width: 900px) {
+    padding: 0 3rem;
+    text-align: left;
+  }
+
+  a.btn {
+    font-size: 0.9em;
+    margin: 5px 0;
+  }
+}
+
+.tab-content__details {
+  text-align: left;
+  font-weight: 300;
+}
+
+#tab1,
+#tab2,
+#tab3 {
+  display: none;
+}
+
+#tab1:checked ~ .tabs > label[for="tab1"],
+#tab2:checked ~ .tabs > label[for="tab2"],
+#tab3:checked ~ .tabs > label[for="tab3"] {
+  color: $base-color-secondary;
+  border-bottom: 2px solid $base-color-secondary;
+
+  @media screen and (min-width: 900px) {
+    border-bottom: none;
+    border-right: 2px solid $base-color-secondary;
+  }
+}
+
+#tab1:checked ~ div.tab-content-wrapper > #tab-content1,
+#tab2:checked ~ div.tab-content-wrapper > #tab-content2,
+#tab3:checked ~ div.tab-content-wrapper > #tab-content3 {
+  display: block;
+}
+
+.signin-content a.btn {
+  margin: 1.2em 0;
+  font-size: 1.2em;
+}
+
+.apply-header__header {
+  margin: 0 0 0.2em 0;
+}
+
+.apply-header__description {
+  font-size: 1.3em;
+}
+
+.apply-form-fields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.2em;
+
+  @media screen and (min-width: 725px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  > div {
+    margin: 0 0 1em 0;
+
+    @media screen and (min-width: 725px) {
+      width: $panel-content-width-large / 2;
+    }
+  }
+
+  .form-control {
+    width: 100%;
+  }
+
+  textarea {
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    color: $off-black;
+  }
+}
+
+.apply-form-fields__label {
+  font-family: 'Source Code Pro';
+  color: $base-color-secondary;
+  padding: 0.4em 0;
+}
+
+.apply-form-fields__input {
+  border-radius: 5px;
+  padding: 0.3em;
+  color: $off-black;
+  outline: none;
+  border: none;
+}
+
+.checkbox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  label {
+    padding: 0 0 0.5em 0;
+    width: $panel-content-width-small / 6;
+
+    @media screen and (min-width: 530px) {
+      width: $panel-content-width-medium / 6;
+    }
+
+    @media screen and (min-width: 725px) {
+      width: $panel-content-width-large / 6;
+    }
+
+    input {
+      margin: 0 0.5em 0 0;
+    }
+  }
+}
+
+.apply-form__button-wrapper {
+  text-align: center;
+}
+
+.apply-form__button {
+  font-family: Lato;
+  font-size: 1.2em;
+  border: none;
+  margin: 1em 0;
+}
+
+.secondary-description {
+  color: $base-color-primary;
+}
+
+.thanks-content__review, .thanks-content__process {
+  line-height: 160%;
+}

@@ -6,6 +6,8 @@ const debug = bug('SIR');
 const error = bug('SIR:error');
 
 import hbs from 'express-handlebars';
+import sassMiddleware from 'node-sass-middleware';
+
 import passport from 'passport';
 import session from 'express-session';
 import mongooseConnection from './lib/db/mongo'
@@ -60,6 +62,14 @@ app.use((err, req, res, next) => {
   error(err.stack);
   res.status(500).send('Internal Server Error');
 });
+
+app.use(sassMiddleware({
+    src: __dirname + '/scss',
+    dest: __dirname + '/public/styles',
+    debug: true,
+    outputStyle: 'compressed',
+    prefix: '/styles'
+}));
 
 app.use(express.static('public', {
   index: false
