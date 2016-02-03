@@ -8,9 +8,9 @@ This guide will walk you through all the necessary configurations and guidelines
 
 To get started, you should first check the task board to see what would be good for you to contribute to. We're using waffle.io to manage the tasks, so head there to look for open tasks.
 
-[*waffle.io task board*](https://waffle.io/therealklanni/az-webdevs)
+[**waffle.io task board**](https://waffle.io/therealklanni/az-webdevs)
 
-> You can also just look at the [GitHub issues](/therealklanni/az-webdevs/issues) list, but they are not arranged as nicely there.
+> You can also just look at the [GitHub issues](https://github.com/therealklanni/az-webdevs/issues) list, but they are not arranged as nicely there.
 
 A few things to note:
 
@@ -111,7 +111,7 @@ Required variables, even for local development:
 - `CLIENT_SECRET` - Your GitHub App Client Secret, obtained from the previous section
 - `SLACK_WEBHOOK_URL` - A fake URL is used for local development
 - `GA_TOKEN` - A fake token is used for local development
-- `DEBUG` - An important configuration for the development logger; see [debug](/visionmedia/debug) for more details on usage
+- `DEBUG` - An important configuration for the development logger; see [debug](https://github.com/visionmedia/debug) for more details on usage
 
 Save these variables (and values) in a file called `.env` in the root of the project (i.e. alongside `app.js`)
 
@@ -129,7 +129,7 @@ You should see output similar to the following:
 [OKAY] Loaded ENV .env File as KEY=VALUE Format
 ```
 
-[Nodemon](/nodemon/nodemon) will automatically restart the server every time you make changes.
+[Nodemon](https://github.com/nodemon/nodemon) will automatically restart the server every time you make changes.
 
 Debug information is logged to the console periodically based on user interactions in the site.
 
