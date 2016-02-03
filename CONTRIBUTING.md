@@ -10,7 +10,7 @@ To get started, you should first check the task board to see what would be good 
 
 [*waffle.io task board*](https://waffle.io/therealklanni/az-webdevs)
 
-> You can also just look at the [GitHub issues](/therealklanni/az-webdevs/issues) list, but they are not arranged as nicely here.
+> You can also just look at the [GitHub issues](/therealklanni/az-webdevs/issues) list, but they are not arranged as nicely there.
 
 A few things to note:
 
@@ -43,7 +43,7 @@ Be as detailed as possible and be open to discussion. Not every feature request 
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
-Currently, this project uses JS Standard Style. Make sure you follow the style and lint your code properly. Pull requests not adhering to the style will not be merge until the style is fixed.
+Currently, this project uses JS Standard Style. Make sure you follow the style and lint your code properly. Pull requests not adhering to the style will not be merged until the style is fixed.
 
 > This may change in the future if project requirements change.
 
