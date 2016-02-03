@@ -20,7 +20,6 @@ router.get('/', validate, (req, res) => {
 
     res.render('thanks', assign({}, getStrings().main, user._doc))
   })
-
 })
 
 export default router
