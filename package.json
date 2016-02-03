@@ -13,7 +13,7 @@
     "start:mongo": "mongod --config mongod.conf --fork",
     "stop:mongo": "killall -9 mongod",
     "sass": "node-sass -w scss/main.scss -o public/styles/",
-    "test": "echo \"Error: no test specified\""
+    "test": "npm run lint"
   },
   "repository": {
     "type": "git",
