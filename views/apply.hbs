@@ -11,6 +11,7 @@
 
   <div class="apply-form-wrapper">
     <form class="apply-form" method="post" action="/apply" enctype="multipart/form-data" id="application">
+      <input type="hidden" name="_csrf" value="{{csrfToken}}">
       <div class="apply-form-fields">
         {{#form}}
           {{#fullName}}
