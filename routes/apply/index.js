@@ -1,5 +1,5 @@
 import bug from 'debug'
-const debug = bug('SIR:apply')
+const debug = bug('SIR:routes:apply')
 
 import express from 'express'
 import _ from 'lodash'
@@ -34,7 +34,9 @@ router.get('/', validate, (req, res) => {
     strings.apply.form.fullName.value = user.name
     strings.apply.form.email.value = user.email
 
-    res.render('apply', _.assign({ csrfToken: req.csrfToken() }, strings.apply, user))
+    const authenticated = req.isAuthenticated()
+
+    res.render('apply', _.assign({ csrfToken: req.csrfToken() }, strings.apply, user, { authenticated }))
   })
 })
 

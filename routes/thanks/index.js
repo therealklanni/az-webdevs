@@ -18,7 +18,9 @@ router.get('/', validate, (req, res) => {
       return res.redirect('/')
     }
 
-    res.render('thanks', assign({}, getStrings().main, user._doc))
+    const authenticated = req.isAuthenticated()
+
+    res.render('thanks', assign({}, getStrings().main, user._doc, { authenticated }))
   })
 })
 
