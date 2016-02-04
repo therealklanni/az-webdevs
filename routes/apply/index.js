@@ -57,7 +57,7 @@ router.post('/', validate, rateLimit(), (req, res) => {
       // omit comments because it's used for "text" above
       _.toPairs(_.assign(
         {},
-        _.omit(req.body, 'comments'),
+        _.omit(req.body, ['_csrf', 'comments']),
         // remove extraneous and falsey properties from user
         _.omit(
           _.omitBy(user._doc, x => _.isNil(x) || _.isEqual(false, x)),
