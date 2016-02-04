@@ -8,7 +8,7 @@
     "lint": "standard",
     "postinstall": "npm prune",
     "prestart": "npm run start:mongo",
-    "start": "nodemon --exec \"nf start\"; npm stop",
+    "start": "nodemon -e js,hbs,scss,yml --exec \"nf start\"; npm stop",
     "stop": "npm run stop:mongo",
     "start:mongo": "mongod --config mongod.conf --fork",
     "stop:mongo": "killall -9 mongod",
