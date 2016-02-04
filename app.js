@@ -8,6 +8,8 @@ const error = bug('SIR:error')
 import hbs from 'express-handlebars'
 import sassMiddleware from 'node-sass-middleware'
 
+import csurf from 'csurf'
+import multer from 'multer'
 import passport from 'passport'
 import session from 'express-session'
 import mongooseConnection from './lib/db/mongo'
@@ -38,6 +40,8 @@ app.use(
   cookieParser(),
   bodyParser.urlencoded({ extended: true }),
   bodyParser.json(),
+  multer().array(),
+  csurf(),
   passport.initialize(),
   passport.session(),
   (req, res, next) => {
@@ -59,6 +63,7 @@ import auth from './lib/auth'
 app.use('/auth', auth)
 
 app.use((err, req, res, next) => {
+  debug('csrf secret', req.session.csrfSecret)
   error(err.stack)
   res.status(500).send('Internal Server Error')
 })
