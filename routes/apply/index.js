@@ -3,7 +3,6 @@ const debug = bug('SIR:routes:apply')
 
 import express from 'express'
 import _ from 'lodash'
-import dotty from 'dotty'
 import changeCase from 'change-case'
 import validate from '../../lib/validate'
 import rateLimit from '../../lib/rate-limit'
@@ -19,7 +18,7 @@ const slackUrl = process.env.SLACK_WEBHOOK_URL
 const slack = slackUrl ? slackApi(slackUrl)
   : exitWithError('Please set SLACK_WEBHOOK_URL environment variable.')
 
-const getId = _.partialRight(dotty.get, 'session.passport.user')
+const getId = _.partialRight(_.get, 'session.passport.user')
 
 router.get('/', validate, (req, res) => {
   const githubId = getId(req)
