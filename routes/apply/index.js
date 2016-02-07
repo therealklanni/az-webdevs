@@ -60,7 +60,7 @@ router.post('/', validate, rateLimit(), (req, res) => {
         // remove extraneous and falsey properties from user
         _.omit(
           _.omitBy(user._doc, x => _.isNil(x) || _.isEqual(false, x)),
-          ['__v', '_id', 'githubId', 'avatar_url', 'html_url', 'created_at', 'updated_at']
+          ['__v', '_id', 'githubId', 'name', 'fullName', 'avatar_url', 'html_url', 'created_at', 'updated_at']
         )
       )),
       // transform the field data
