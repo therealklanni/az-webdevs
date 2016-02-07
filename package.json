@@ -37,7 +37,6 @@
     "connect-mongo": "^1.1.0",
     "cookie-parser": "^1.4.1",
     "csurf": "^1.8.3",
-    "dotty": "0.0.2",
     "express": "^4.13.4",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.13.0",

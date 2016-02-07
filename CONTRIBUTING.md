@@ -55,8 +55,9 @@ All pull requests should follow these simple rules:
 - One feature/bug per branch; if you are working on multiple issues (good for you! :beers:), do so in separate branches
 - Make [atomic commits](https://en.wikipedia.org/wiki/Atomic_commit#Atomic_commit_convention); each commit should encompass one "whole" change. An example is any changes (even across multiple files) that relates to fixing whitespace, or changes that refactor a function, etc. If you can't revert your commit without breaking something else, *it's not atomic!*
 - Conversely to the above: do not make one large single commit if you are making major revisions to the code (this is only appropriate if you are making one small change, like a bug fix)
-- **Submit your PR early!** This is a great way to get early feedback, *especially if you're working on a large change*.
+- **Submit your PR early!** This is a great way to get early feedback, *especially if you're working on a large change*
 - Make sure to manually smoke-test your PR using the Review App (see below)
+- Write `Closes #N` (where N is the number of the related issue) at the **bottom** of your PR description, if applicable
 
 ### How to set up MongoDB
 
@@ -141,4 +142,4 @@ Your Review App instance will be named `azwd-staging-pr-N` where `N` is the numb
 
 The URL for your review app will be `https://app-name.herokuapp.com`, e.g. `https://azwd-staging-pr-29.herokuapp.com`. You can use this URL to fully test your changes. It will even post invites to Slack when the application form is submitted (leave a comment on your PR requesting an invite to the "invite tests" channel if you need to test this feature).
 
-> The Review App link will also appear in the PR when it's deployed.
+> The Review App link will also appear in the PR when it's deployed. You can also join #github in Slack to see all deployment statuses with a link to your Review App when deployed successfully.

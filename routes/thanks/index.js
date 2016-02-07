@@ -1,5 +1,5 @@
 import assign from 'lodash/assign'
-import dotty from 'dotty'
+import get from 'lodash/get'
 import validate from '../../lib/validate'
 import { getStrings } from '../../lib/helpers'
 import User from '../../lib/db/models/user'
@@ -10,7 +10,7 @@ const debug = bug('SIR:thanks')
 const router = express.Router()
 
 router.get('/', validate, (req, res) => {
-  const githubId = dotty.get(req, 'session.passport.user')
+  const githubId = get(req, 'session.passport.user')
 
   User.findOne({ githubId }, (err, user) => {
     if (err || !user) {
