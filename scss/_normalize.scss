@@ -220,6 +220,8 @@ hr {
 
 pre {
   overflow: auto;
+  white-space: pre-wrap;
+  text-align: left;
 }
 
 /**
@@ -231,7 +233,7 @@ kbd,
 pre,
 samp {
   font-family: monospace, monospace;
-  font-size: 1em;
+  font-size: 0.8em;
 }
 
 /* Forms

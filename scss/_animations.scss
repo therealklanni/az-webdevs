@@ -16,7 +16,7 @@
 
 // Signin Page animation
 
-.signin-content__header {
+.signin-content__header, .error-content__header {
   -webkit-animation-name: fadeInRight;
   animation-name: fadeInRight;
   -webkit-animation-duration: 800ms;
@@ -26,7 +26,7 @@
   animation-timing-funciton: linear;
 }
 
-.signin-content__detail {
+.signin-content__detail, .error-content__detail {
   -webkit-animation-name: fadeInLeft;
   animation-name: fadeInLeft;
   -webkit-animation-duration: 800ms;
@@ -36,7 +36,7 @@
   animation-timing-funciton: linear;
 }
 
-.signin-content__subtext {
+.signin-content__subtext, .error-content__subtext {
   -webkit-animation-name: fadeInRight;
   animation-name: fadeInRight;
   -webkit-animation-duration: 800ms;

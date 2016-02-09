@@ -112,9 +112,13 @@
   display: block;
 }
 
-.signin-content a.btn {
+.signin-content a.btn, .error-content a.btn {
   margin: 1.2em 0;
   font-size: 1.2em;
+}
+
+.error-content b {
+  color: $dark-secondary;
 }
 
 .apply-header__header {
