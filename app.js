@@ -72,7 +72,9 @@ app.use((err, req, res, next) => {
   }
 
   const errContent = {
-    subtext: 'Try again after you have updated your GitHub profile.',
+    subtext: err.name === 'ValidationError'
+      ? 'Try again after you have updated your GitHub profile.'
+      : 'Please file a bug report with the error shown above.',
     message: err.name === 'ValidationError'
       ? `
 Please make sure you set your <b>Name</b> and make your <b>Email</b> public in your <a target="_blank" href="https://github.com/settings/profile">GitHub profile</a>.
@@ -80,6 +82,7 @@ Please make sure you set your <b>Name</b> and make your <b>Email</b> public in y
 <p>This helps us know who you are and where to send your invite.</p>`
 // <a class="btn" href="/auth/github/signout">Sign out to start over</a>`
       : `Looks like VelociRyan is on the loose again!
+<p><img class="oops-image" src="/images/oops.png" alt="Oops">
 <blockquote><pre>${err.stack}</pre></blockquote>`
   }
 
