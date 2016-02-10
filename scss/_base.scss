@@ -93,3 +93,9 @@ span.required {
 .profile-sample, .oops-image {
   max-height: 200px;
 }
+
+input[readonly] {
+  color: #999;
+  background-color: #eee;
+  cursor: default;
+}
