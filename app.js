@@ -62,10 +62,34 @@ app.use('/thanks', thanks)
 import auth from './lib/auth'
 app.use('/auth', auth)
 
+import { getStrings } from './lib/helpers'
+
 app.use((err, req, res, next) => {
-  debug('csrf secret', req.session.csrfSecret)
   error(err.stack)
-  res.status(500).send('Internal Server Error')
+
+  if (process.env.NODE_ENV === 'production') {
+    err.stack = ''
+  }
+
+  const errContent = {
+    subtext: err.name === 'ValidationError'
+      ? 'Try again after you have updated your GitHub profile.'
+      : 'Please file a bug report with the error shown above.',
+    message: err.name === 'ValidationError'
+      ? `
+Please make sure you set your <b>Name</b> and make your <b>Email</b> public in your <a target="_blank" href="https://github.com/settings/profile">GitHub profile</a>.
+<p><img class="profile-sample" src="/images/profile.png" alt="GitHub Profile sample">
+<p>This helps us know who you are and where to send your invite.</p>`
+// <a class="btn" href="/auth/github/signout">Sign out to start over</a>`
+      : `Looks like VelociRyan is on the loose again!
+<p><img class="oops-image" src="/images/oops.png" alt="Oops">
+<blockquote><pre>${err.stack}</pre></blockquote>`
+  }
+
+  errContent.title = getStrings().title
+  errContent.authenticated = req.isAuthenticated()
+
+  res.status(500).render('error', errContent)
 })
 
 app.use(sassMiddleware({

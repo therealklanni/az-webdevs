@@ -19,7 +19,7 @@
   }
 }
 
-.signin-content {
+.signin-content, .error-content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,11 +28,11 @@
   padding-top: 3rem;
 }
 
-.signin-content__detail {
+.signin-content__detail, .error-content__detail {
   font-size: 1.2em;
 }
 
-.signin-content__subtext {
+.signin-content__subtext, .error-content__subtext {
   color: $base-color-primary;
 }
 

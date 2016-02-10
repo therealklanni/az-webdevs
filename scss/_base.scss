@@ -89,3 +89,13 @@ span.required {
   color: #FF0000;
   font-family: Lato;
 }
+
+.profile-sample, .oops-image {
+  max-height: 200px;
+}
+
+input[readonly] {
+  color: #999;
+  background-color: #eee;
+  cursor: default;
+}
