@@ -32,20 +32,20 @@ apply:
       "Please fill out the form below. Your request to join will
       be reviewed as quickly as possible and your invitation will be
       sent to the email address below."
-    required: "Required field"
+    required: "Provided by GitHub"
 
   form:
     fullName:
       name: "fullName"
       class: "full-name"
-      title: "Full name"
+      title: "Name"
       required: true
       readonly: true
 
     email:
       name: "email"
       class: "email"
-      title: "Email address"
+      title: "Email"
       required: true
       readonly: true
 
