@@ -24,7 +24,7 @@
   padding-bottom: 2rem;
 
   @media screen and (min-width: 900px) {
-    font-size: 12.5em;
+    font-size: 12.2em;
     padding: 3rem 0 0 0;
   }
 }
@@ -47,12 +47,16 @@
   label {
     display: block;
     cursor: pointer;
-    font: 1.3em 'Source Code Pro';
+    font: 1.1em 'Source Code Pro';
     color: $off-white;
     transition: all 0.4s;
     border-bottom: 2px solid $off-white;
     padding: 1.2rem 1.5rem;
     margin-bottom: 1.5rem;
+
+    @media screen and (min-width: 400px) {
+      font-size: 1.3em;
+    }
 
     @media screen and (min-width: 900px) {
       margin: 0;
@@ -84,15 +88,27 @@
   }
 }
 
-.tab-content__details, .meetups__details {
+.tab-content__details, .tab-content__details--subtext {
   text-align: left;
-  font-weight: 300;
+
+  @media screen and (min-width: 600px) {
+    font-weight: 300;
+  }
+}
+
+.tab-content__details--subtext {
+  text-align: center;
+
+  @media screen and (min-width: 900px) {
+    text-align: left;
+  }
 }
 
 .tab-content.meetups {
   font-size: 1.1em;
 
   .primary-header {
+    font-size: 2em;
     margin-bottom: 0.3em;
   }
 
