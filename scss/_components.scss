@@ -14,7 +14,6 @@
   .logo {
     font-size: 1.3em;
     color: $base-color-secondary;
-    padding-left: 80px;
   }
 }
 
@@ -252,4 +251,8 @@
 
 .thanks-content__review, .thanks-content__process {
   line-height: 160%;
+}
+
+.github-fork-ribbon:before {
+  background-color: green;
 }
