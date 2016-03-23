@@ -253,6 +253,7 @@
   line-height: 160%;
 }
 
-.github-fork-ribbon:before {
+.github-fork-ribbon:before, .github-fork-ribbon:after {
   background-color: $base-color-secondary;
+  box-sizing: content-box;
 }
