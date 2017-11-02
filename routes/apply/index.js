@@ -34,9 +34,11 @@ router.get('/', validate, (req, res) => {
       return res.redirect('/')
     }
 
+    const { reapply } = req.query
+
     if (user.applied_at) {
       return res.redirect('/applied')
-    } else if (checkUpdatedAtDate(user.updated_at)) {
+    } else if (!reapply && checkUpdatedAtDate(user.updated_at)) {
       req.session.assumeApplied = true
       return res.redirect('/applied')
     }
