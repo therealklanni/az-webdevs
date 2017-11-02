@@ -54,10 +54,12 @@ import apply from './routes/apply'
 import home from './routes/home'
 import signin from './routes/signin'
 import thanks from './routes/thanks'
+import applied from './routes/applied'
 app.use('/apply', apply)
 app.use('/', home)
 app.use('/signin', signin)
 app.use('/thanks', thanks)
+app.use('/applied', applied)
 
 import auth from './lib/auth'
 app.use('/auth', auth)

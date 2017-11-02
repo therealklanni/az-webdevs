@@ -31,7 +31,7 @@ router.get('/', validate, (req, res) => {
     }
 
     if (user.applied_at) {
-      return res.redirect('/')
+      return res.redirect('/applied')
     }
 
     strings.apply.form.fullName.value = user.name
