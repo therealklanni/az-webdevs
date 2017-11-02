@@ -3,11 +3,15 @@
 <div>
   <div class="applied-content">
     <h2 class="primary-header applied-content__header">Whoa, <span>{{name}}</span>!</h1>
-    <p>It appears you have already applied to <span>{{about.team.name}}</span> on
-    <span class="applied-content__application-date">{{formatDate applied_at}}</span>.</p>
-    {{#if lessThanTwoDays}}
-      <p>It has been less than 48 hours since you applied. Please wait for further action from our admins. They may
-      not have had the chance to see your application yet. Thank you!</p>
+    {{#if applied_at}}
+      <p>It appears you have already applied to <span>{{about.team.name}}</span> on
+      <span class="applied-content__application-date">{{formatDate applied_at}}</span>.</p>
+      {{#if lessThanTwoDays}}
+        <p>It has been less than 48 hours since you applied. Please wait for further action from our admins. They may
+        not have had the chance to see your application yet. Thank you!</p>
+      {{/if}}
+    {{else}}
+      <p>Based on your login age, we have assumed that you have already applied.</p>
     {{/if}}
   </div>
 </div>
