@@ -52,6 +52,13 @@ router.post('/', validate, rateLimit(), (req, res) => {
       return res.redirect('/')
     }
 
+    user.applied_at = Date.now()
+    user.save((err) => {
+      if (err) {
+        return res.status(500).send(err)
+      }
+    })
+
     debug('Received application from "%s <%s>"', user.name, user.email, user)
 
     res.redirect('/thanks')
