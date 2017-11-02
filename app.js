@@ -24,7 +24,18 @@ app.use(logger('dev'))
 app.engine('.hbs', hbs({
   defaultLayout: 'main',
   extname: '.hbs',
-  partialsDir: ['./views/partials/']
+  partialsDir: ['./views/partials/'],
+  helpers: {
+    formatDate: function (date) {
+      if (!date instanceof Date) {
+        return ''
+      }
+      const day = date.getDate()
+      const month = date.getMonth()
+      const year = date.getFullYear()
+      return `${month + 1}-${day}-${year}`
+    }
+  }
 }))
 app.set('view engine', '.hbs')
 app.set('views', './views')
