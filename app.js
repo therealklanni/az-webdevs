@@ -24,7 +24,18 @@ app.use(logger('dev'))
 app.engine('.hbs', hbs({
   defaultLayout: 'main',
   extname: '.hbs',
-  partialsDir: ['./views/partials/']
+  partialsDir: ['./views/partials/'],
+  helpers: {
+    formatDate: function (date) {
+      if (!date instanceof Date) {
+        return ''
+      }
+      const day = date.getDate()
+      const month = date.getMonth()
+      const year = date.getFullYear()
+      return `${month + 1}-${day}-${year}`
+    }
+  }
 }))
 app.set('view engine', '.hbs')
 app.set('views', './views')
@@ -54,10 +65,12 @@ import apply from './routes/apply'
 import home from './routes/home'
 import signin from './routes/signin'
 import thanks from './routes/thanks'
+import applied from './routes/applied'
 app.use('/apply', apply)
 app.use('/', home)
 app.use('/signin', signin)
 app.use('/thanks', thanks)
+app.use('/applied', applied)
 
 import auth from './lib/auth'
 app.use('/auth', auth)

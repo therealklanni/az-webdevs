@@ -7,7 +7,7 @@ import changeCase from 'change-case'
 import validate from '../../lib/validate'
 import rateLimit from '../../lib/rate-limit'
 import slackApi from '../../lib/slack'
-import { exitWithError, getStrings } from '../../lib/helpers'
+import { exitWithError, getStrings, getDifferenceInDays } from '../../lib/helpers'
 import User from '../../lib/db/models/user'
 
 const router = express.Router()
@@ -20,6 +20,10 @@ const slack = slackUrl ? slackApi(slackUrl)
 
 const getId = _.partialRight(_.get, 'session.passport.user')
 
+function checkUpdatedAtDate (updatedAt) {
+  return getDifferenceInDays(updatedAt, new Date()) > 30
+}
+
 router.get('/', validate, (req, res) => {
   const githubId = getId(req)
   const strings = getStrings()
@@ -28,6 +32,15 @@ router.get('/', validate, (req, res) => {
     if (err || !user) {
       debug(`Could not find user ${githubId}`)
       return res.redirect('/')
+    }
+
+    const { reapply } = req.query
+
+    if (user.applied_at) {
+      return res.redirect('/applied')
+    } else if (!reapply && checkUpdatedAtDate(user.updated_at)) {
+      req.session.assumeApplied = true
+      return res.redirect('/applied')
     }
 
     strings.apply.form.fullName.value = user.name
@@ -47,6 +60,13 @@ router.post('/', validate, rateLimit(), (req, res) => {
       debug(`Could not find user ${githubId}`)
       return res.redirect('/')
     }
+
+    user.applied_at = Date.now()
+    user.save((err) => {
+      if (err) {
+        return res.status(500).send(err)
+      }
+    })
 
     debug('Received application from "%s <%s>"', user.name, user.email, user)
 

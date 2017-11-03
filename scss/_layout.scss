@@ -64,6 +64,7 @@
   padding-top: 1rem;
 }
 
+.applied-content,
 .thanks-content {
   font-size: 1.2rem;
   display: flex;
@@ -82,6 +83,7 @@
   }
 }
 
+.applied-content__application-date,
 .thanks-content__process {
   color: $base-color-primary;
 }
