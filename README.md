@@ -1,4 +1,4 @@
-# Slack Invite Request (aka SIR) for [azwebdevs.org](https://azwebdevs.org)
+# Slack Invite Request (aka SIR) for [azdevs.org](https://azdevs.org)
 
 ![SIR](https://raw.githubusercontent.com/therealklanni/slack-invite-request/master/public/images/bot.png)
 

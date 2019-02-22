@@ -1,7 +1,7 @@
 {
   "name": "az-webdevs",
   "version": "1.0.0",
-  "description": "az-webdevs.io",
+  "description": "azdevs.org",
   "main": "server.js",
   "private": true,
   "scripts": {

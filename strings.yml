@@ -2,28 +2,61 @@
 # -
 # Configure the strings below however suits your needs
 ---
-title: "Web Developers"
+title: "Arizona Developers"
 main:
   header:
-    blurb: "Get Involved"
+    blurb: "Hello world!"
     detail:
-      "AZ Web Devs is a community created by and for local web developers as a place for us to
-      connect, communicate and collaborate. This community aims to be a great
-      place to chat and get help or advice, for those of us who attend every
-      possible meetup and those who can't attend any—and everyone in between."
-    subtext: "We look forward to seeing you there!"
+      "{az}devs is a community created by and for local developers as a place to connect,
+      communicate, and collaborate. This community aims to be a great place to chat and get help or
+      advice, for those of us who attend every possible meetup, those who can't attend any, and
+      everyone in between."
+    subtext: "See you there!"
   about:
     team:
-      name: "AZ Web Devs"
+      name: "{az}devs"
       link: "https://az-webdevs.slack.com"
       description:
-        "Many local developers don't have time to attend meetups, simply
-        can't go as often as they'd like to, or live too far away from ones they
-        would like to attend. For these reasons, we created this community so
-        more developers can network with each other. This community is less formal
-        than the various Meetup groups, and we don't (yet) have any regular meetings.
-        It's more just a place to gather and chat, collaborate, get help, offer help,
-        advice, network, etc. Join us and meet more devs!"
+        "Many local developers don't have time to attend meetups, simply can't go as often as they'd
+        like to, or live too far away from ones they would like to attend. For these reasons, we
+        created this community so more developers can network with each other. This community is
+        less formal than the various Meetup groups, and we don't (yet) have any regular meetings.
+        It's more just a place to gather and chat, collaborate, get help, offer help, advice,
+        network, etc. Join us and meet more devs!"
+  meetups:
+    - name: "Phoenix JavaScript"
+      description:
+        "Phoenix JavaScript hosts monthly events that allows members to network and hear technology
+        presentations. Meetings are generally held on Wednesdays and we usually have stuff from
+        sponsors to provide to members such as pizza and a t-shirt drawing. Membership is free, I
+        only ask that you use Meetup's RSVP system to let us know you're coming. Our goal is to
+        provide a regular event that allows our community to come together and learn from each
+        other. We will always try to appeal to both experienced and inexperienced developers."
+      url: "http://www.meetup.com/Phoenix-JavaScript/"
+    - name: "NodeAZ"
+      description:
+        "Phoenix developer group for full stack JavaScript using Node.js, browsers, and embedded
+        tech. Real-time web, websockets, react, vue and much more. 7PM 4th Monday at HeatSync Labs"
+      url: "http://www.meetup.com/NodeAZ/"
+    - name: "ng-phx"
+      description:
+        "Developer meetup group for all things Angular."
+      url: "http://www.meetup.com/Phoenix-AngularJS-Official/"
+    - name: "Phoenix ReactJS"
+      description:
+        "Phoenix javascript developers coding with ReactJS"
+      url: "http://www.meetup.com/Phoenix-ReactJS/"
+    - name: "Ruby::AZ"
+      description:
+        "The Phoenix Ruby User group is a monthly meeting for Ruby enthusiasts in the Phoenix
+        metropolitan area. Each month we try to have one or more presentations on current Ruby
+        development. We're always looking for people to give a talk; it needn't be fancy or formal.
+        If you're working on something cool, or learned something new, come show it off. The Phoenix
+        Ruby User Group aims to grow and support a unified valley-wide community of Rubyists with
+        community education, technological innovation, and outreach. The group meets on the 3rd
+        Tuesday of each month."
+      url: "https://www.meetup.com/Ruby-AZ"
+
 apply:
   # Displayed at the top of the page
   header:

@@ -1,5 +1,5 @@
 {
-	"name": "{az}webdevs",
+	"name": "{az}devs",
 	"icons": [
 		{
 			"src": "\/android-chrome-36x36.png",
@@ -38,6 +38,6 @@
 			"density": 4
 		}
 	],
-	"start_url": "https:\/\/azwebdevs.org",
+	"start_url": "https:\/\/azdevs.org",
 	"display": "standalone"
 }
