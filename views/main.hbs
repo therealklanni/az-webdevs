@@ -9,93 +9,60 @@
     <label for="tab3">Meetups</label>
   </div>
 
-  {{#header}}
   <div class="tab-content-wrapper">
+    {{#header}}
     <div id="tab-content1" class="tab-content">
-      <h1 class="primary-header">{{blurb}}</h1>
+      <h1 class="primary-heading">{{blurb}}</h1>
       <p class="tab-content__details">{{detail}}</p>
-      <p><a class="btn" href="/signin">Join us on Slack now &raquo;</a></p>
+      <div class="action-buttons">
+        <div>
+          <p>Not a member?</p>
+          <a class="btn" href="/signin">Request an invite &raquo;</a>
+        </div>
+        <div>
+          <p>Already a member?</p>
+          <a href="https://slack.azdevs.org" class="btn">Open Slack &raquo;</a>
+        </div>
+      </div>
       <p class="tab-content__details--subtext">{{subtext}}</p>
     </div>
     {{/header}}
     {{#about}}
     {{#team}}
     <div id="tab-content2" class="tab-content">
-      <h1 class="primary-header">About Us</h1>
-      <p class="secondary-description">We are {{name}}</p>
+      <h1 class="primary-heading">About Us</h1>
+      <p class="secondary-description">
+        we are
+        <span class="secondary-description__name">
+          <span class="name--head">{az}</span><span class="name--tail">devs</span>
+        </span>
+      </p>
       <p class="tab-content__details">{{description}}</p>
-      <p><a class="btn" href="{{link}}">View details &raquo;</a></p>
+      <p><a class="btn" href="{{link}}">Open Slack &raquo;</a></p>
+    </div>
     {{/team}}
-    </div>
-    <div id="tab-content3" class="tab-content meetups">
-      <div>
-        <h1 class="primary-header">Phoenix JavaScript</h1>
-        <p class="tab-content__details">
-          Phoenix JavaScript hosts monthly events that allows members to network
-          and hear technology presentations. Meetings are generally held on
-          Wednesdays and usually there is pizza and a t-shirt drawing.
-        </p>
-        <p>
-          <a class="btn" href="http://www.meetup.com/Phoenix-JavaScript/">
-            View details &raquo;
-          </a>
-        </p>
-      </div>
-      <div>
-        <h1 class="primary-header">NodeAZ</h1>
-        <p class="tab-content__details">
-          Phoenix developer group for server-side JavaScript/CoffeeScript using
-          Node.js. Real-time web, websockets, HTML5 and much more. 7PM 3rd Mon
-          at UAT.
-        </p>
-        <p>
-          <a class="btn" href="http://www.meetup.com/NodeAZ/">
-            View details &raquo;
-          </a>
-        </p>
-      </div>
-      <div>
-        <h1 class="primary-header">Phoenix AngularJS (Official)</h1>
-        <p class="tab-content__details">
-          Trying to revive the Angular community in Arizona. We are going to try
-          to have monthly meetings around the valley. Everything Angular!
-        </p>
-        <p>
-          <a class="btn" href="http://www.meetup.com/Phoenix-AngularJS-Official/">
-            View details &raquo;
-          </a>
-        </p>
-      </div>
-      <div>
-        <h1 class="primary-header">Phoenix ReactJS</h1>
-        <p class="tab-content__details">
-          Phoenix ReactJS is the home of React in Phoenix. We have presentations and networking for React and related technologies. Looking for a React job/gig?
-        </p>
-        <p>
-          <a class="btn" href="http://www.meetup.com/Phoenix-ReactJS/">
-            View details &raquo;
-          </a>
-        </p>
-      </div>
-      <div>
-        <h1 class="primary-header">Ruby::AZ</h1>
-        <p class="tab-content__details">
-          Join rubyists from around the valley to socialize, network, and discuss all things Rails, Ruby, and beyond (Javascript included). We meet on the 3rd Tuesday of every month, usually at the Tempe GoDaddy office, but we are open to other locations by suggestion.
-        </p>
-        <p>
-          <a class="btn" href="https://www.meetup.com/Ruby-AZ">
-            View details &raquo;
-          </a>
-        </p>
-      </div>
-    </div>
     {{/about}}
+    <div id="tab-content3" class="tab-content meetups">
+      {{#meetups}}
+      <div>
+        <h1 class="primary-heading">{{name}}</h1>
+        <p class="tab-content__details">{{description}}</p>
+        <p>
+          <a class="btn" href="{{url}}">
+            View details &raquo;
+          </a>
+        </p>
+      </div>
+      {{/meetups}}
+      <p><em>Run a Meetup? Don't see it listed? Fork us and add it!</em></p>
+    </div>
   </div>
   <div class="logo home-content__logo">
     <span>{az}</span>
   </div>
 </div>
 
-<a class="github-fork-ribbon right-bottom" href="https://github.com/therealklanni/az-webdevs" title="Fork me on GitHub">Fork me on GitHub</a>
+<a class="github-fork-ribbon right-bottom" href="https://github.com/therealklanni/az-webdevs"
+  title="Fork me on GitHub">Fork me on GitHub</a>
 
 {{> scripts}}

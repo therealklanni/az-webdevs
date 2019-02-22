@@ -3,32 +3,32 @@
 {{#header}}
 <div class="apply-content">
   <div class="apply-header">
-      <h2 class="primary-header apply-header__header">{{blurb}}</h2>
-      <p class="apply-header__description">{{description}}</p>
-      <div><span class="required">*</span> {{required}}</div>
+    <h2 class="primary-heading apply-header__header">{{blurb}}</h2>
+    <p class="apply-header__description">{{description}}</p>
+    <div><span class="required">*</span> {{required}}</div>
   </div>
-{{/header}}
+  {{/header}}
 
   <div class="apply-form-wrapper">
     <form class="apply-form" method="post" action="/apply" enctype="multipart/form-data" id="application">
       <input type="hidden" name="_csrf" value="{{csrfToken}}">
       <div class="apply-form-fields">
         {{#form}}
-          {{#fullName}}
-            <div>
-              {{> field}}
-            </div>
-          {{/fullName}}
-          {{#email}}
-            <div>
-              {{> field}}
-            </div>
-          {{/email}}
-          {{#custom}}
-            <div>
-              {{> field}}
-            </div>
-          {{/custom}}
+        {{#fullName}}
+        <div>
+          {{> field}}
+        </div>
+        {{/fullName}}
+        {{#email}}
+        <div>
+          {{> field}}
+        </div>
+        {{/email}}
+        {{#custom}}
+        <div>
+          {{> field}}
+        </div>
+        {{/custom}}
         {{/form}}
       </div>
 

@@ -1,10 +1,11 @@
 <nav class="primary-nav">
-    <a href="/">
-      <span class="logo">{az}</span> {{title}}
-    </a>
+  <a href="/">
+    <span class="name--head">{az}</span><span class="name--tail">devs</span>
+    <span class="name--title">{{title}}</span>
+  </a>
   {{#if authenticated}}
-  <a class="btn" href="/auth/github/signout">Sign out</a>
+  <a class="btn--secondary" href="/auth/github/signout">Sign out</a>
   {{else if hideSignIn}}{{else}}
-  <a class="btn" href="/signin">Sign in</a>
+  <a class="btn--secondary" href="/signin">Sign in</a>
   {{/if}}
 </nav>

@@ -3,7 +3,7 @@
   flex-direction: row;
   justify-content: space-between;
   font-weight: 600;
-  color: $base-color-primary;
+  color: $base-primary;
   font-size: 1.4em;
   padding: 1rem 3rem;
 
@@ -11,15 +11,32 @@
     padding: 1rem 5rem;
   }
 
-  .logo {
-    font-size: 1.3em;
-    color: $base-color-secondary;
+  .name {
+    font-size: 1.5em;
   }
+}
+
+.name {
+  font-size: inherit;
+}
+
+.name--head {
+  @extend .name;
+  color: $base-secondary;
+}
+
+.name--tail {
+  @extend .name;
+  color: $base-primary;
+}
+
+.name--title {
+  color: $dark-secondary;
 }
 
 .home-content__logo {
   font-size: 9em;
-  color: $base-color-primary;
+  color: $dark-secondary;
   text-align: center;
   padding-bottom: 2rem;
 
@@ -66,7 +83,7 @@
     }
 
     &:hover {
-      color: $dark-secondary;
+      color: $base-primary;
     }
   }
 }
@@ -89,7 +106,7 @@
 }
 
 .tab-content__details, .tab-content__details--subtext {
-  text-align: left;
+  text-align: justify;
 
   @media screen and (min-width: 600px) {
     font-weight: 300;
@@ -107,7 +124,7 @@
 .tab-content.meetups {
   font-size: 1.1em;
 
-  .primary-header {
+  .primary-heading {
     font-size: 2em;
     margin-bottom: 0.3em;
   }
@@ -126,12 +143,12 @@
 #tab1:checked ~ .tabs > label[for="tab1"],
 #tab2:checked ~ .tabs > label[for="tab2"],
 #tab3:checked ~ .tabs > label[for="tab3"] {
-  color: $base-color-secondary;
-  border-bottom: 2px solid $base-color-secondary;
+  color: $base-primary;
+  border-bottom: 2px solid $base-primary;
 
   @media screen and (min-width: 900px) {
     border-bottom: none;
-    border-right: 2px solid $base-color-secondary;
+    border-right: 2px solid $base-primary;
   }
 }
 
@@ -148,7 +165,7 @@
 
 .error-content {
   a {
-    color: $base-color-secondary
+    color: $base-secondary
   }
 
   b {
@@ -199,7 +216,7 @@
 
 .apply-form-fields__label {
   font-family: 'Source Code Pro';
-  color: $base-color-secondary;
+  color: $base-secondary;
   padding: 0.4em 0;
 }
 
@@ -246,7 +263,11 @@
 }
 
 .secondary-description {
-  color: $base-color-primary;
+  color: $base-primary;
+
+  .secondary-description__name {
+    color: $base-secondary;
+  }
 }
 
 .thanks-content__review, .thanks-content__process {
@@ -254,6 +275,17 @@
 }
 
 .github-fork-ribbon:before, .github-fork-ribbon:after {
-  background-color: $base-color-secondary;
+  background-color: $base-secondary;
   box-sizing: content-box;
+}
+
+.action-buttons {
+  flex: 1 1;
+  display: flex;
+  justify-content: space-around;
+
+  p {
+    margin-bottom: 0;
+    color: $base-primary;
+  }
 }

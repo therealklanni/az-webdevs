@@ -1,14 +1,15 @@
 {{> nav}}
 
-<div>
-  <div class="thanks-content">
-    <h2 class="primary-header thanks-content__header">Thank you, <span>{{name}}</span>!</h1>
-    <p class="thanks-content__review">Your <span>{{about.team.name}}</span> application is being
+<div class="thanks-content">
+  <h2 class="primary-heading thanks-content__header">Thank you, <span>{{name}}</span>!</h2>
+  <p class="thanks-content__review">Your <span>{{about.team.name}}</span> application is being
     reviewed. If approved, you will receive an email at
     &lt;<span class="thanks-email text-primary">{{email}}</span>&gt;
     with further instructions.</p>
-    <p class="thanks-content__process">Your application is now being processed. By submitting an application you are not guaranteed to receive an invite. Invitations are issued at the discretion of <span class="thanks-team text-primary">{{about.team.name}}'s</span> admin team. Please do not resubmit your application if you do not receive an invite.</p>
-  </div>
+  <p class="thanks-content__process">By submitting an application you are
+    not guaranteed to receive an invite. Invitations are issued at the discretion of <span
+      class="thanks-team text-primary">{{about.team.name}}'s</span> admin team. Please do not resubmit your
+    application if you do not receive an invite.</p>
 </div>
 
 {{> scripts}}
