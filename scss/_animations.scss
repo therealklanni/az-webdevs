@@ -7,7 +7,12 @@
           animation-duration: 1100ms;
   -webkit-animation-iteration-count: 1;
           animation-iteration-count: 1;
-  animation-timing-funciton: linear;
+  animation-timing-function: linear;
+
+  @media screen and (max-width: 899px) {
+    -webkit-animation-name: fadeInBottom;
+    animation-name: fadeInBottom;
+  }
 }
 
 .tab-content * {
@@ -23,7 +28,7 @@
           animation-duration: 800ms;
   -webkit-animation-iteration-count: 1;
           animation-iteration-count: 1;
-  animation-timing-funciton: linear;
+  animation-timing-function: linear;
 }
 
 .signin-content__detail, .error-content__detail {
@@ -33,7 +38,7 @@
           animation-duration: 800ms;
   -webkit-animation-iteration-count: 1;
           animation-iteration-count: 1;
-  animation-timing-funciton: linear;
+  animation-timing-function: linear;
 }
 
 .signin-content__subtext, .error-content__subtext {
@@ -43,7 +48,7 @@
           animation-duration: 800ms;
   -webkit-animation-iteration-count: 1;
           animation-iteration-count: 1;
-  animation-timing-funciton: linear;
+  animation-timing-function: linear;
 }
 
 .thanks-content__header {
@@ -53,7 +58,7 @@
           animation-duration: 800ms;
   -webkit-animation-iteration-count: 1;
           animation-iteration-count: 1;
-  animation-timing-funciton: linear;
+  animation-timing-function: linear;
 }
 
 .thanks-content__review {
@@ -63,7 +68,7 @@
           animation-duration: 800ms;
   -webkit-animation-iteration-count: 1;
           animation-iteration-count: 1;
-  animation-timing-funciton: linear;
+  animation-timing-function: linear;
 }
 
 .thanks-content__process {
@@ -73,7 +78,7 @@
           animation-duration: 800ms;
   -webkit-animation-iteration-count: 1;
           animation-iteration-count: 1;
-  animation-timing-funciton: linear;
+  animation-timing-function: linear;
 }
 
 @keyframes scale {
@@ -89,6 +94,17 @@
     transform: scale(1);
     opacity: 1;
   }
+}
+
+@keyframes fadeInBottom {
+    0% {
+      transform: translate(0px, 50vh);
+      opacity: 0;
+    }
+    100% {
+      transform: translate(0px, 0px);
+      opacity: 1;
+    }
 }
 
 @keyframes fadeInLeft {
