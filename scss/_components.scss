@@ -7,10 +7,6 @@
   font-size: 1.4em;
   padding: 1rem 3rem;
 
-  @media screen and (min-width: 450px) {
-    padding: 1rem 5rem;
-  }
-
   .name {
     font-size: 1.5em;
   }
@@ -35,14 +31,18 @@
 }
 
 .home-content__logo {
-  font-size: 9em;
-  color: $dark-secondary;
-  text-align: center;
+  background-image: url(/images/azdevs.png);
+  background-position: center top;
+  background-size: contain;
+  background-repeat: no-repeat;
   padding-bottom: 2rem;
+  display: block;
+  width: 100vw;
+  height: 50vh;
 
   @media screen and (min-width: 900px) {
-    font-size: 12.2em;
     padding: 3rem 0 0 0;
+    width: 100rem;
   }
 }
 
