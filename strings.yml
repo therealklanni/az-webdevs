@@ -120,7 +120,7 @@ apply:
             <label><input type="checkbox" name="languages" value="dotnet">.NET</label>
             <label><input type="checkbox" name="languages" value="python">Python</label>
             <label><input type="checkbox" name="languages" value="php">PHP</label>
-            <label><input type="checkbox" name="languages" vlaue="ruby">Ruby</label>
+            <label><input type="checkbox" name="languages" value="ruby">Ruby</label>
           </div>
 
       -
