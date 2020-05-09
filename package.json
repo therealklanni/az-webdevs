@@ -15,6 +15,9 @@
     "sass": "node-sass -w scss/main.scss -o public/styles/",
     "test": "npm run lint"
   },
+  "engines": {
+    "node": ">=8 <12"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/therealklanni/slack-invite-request.git"
