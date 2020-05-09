@@ -1,0 +1,13 @@
+{
+	"m.homeserver": {
+		"base_url": "https://matrix.azdevs.org"
+	}
+,
+	"m.identity_server": {
+		"base_url": "https://matrix.azdevs.org"
+	}
+,
+	"im.vector.riot.jitsi": {
+		"preferredDomain": "jitsi.azdevs.org"
+	}
+}
